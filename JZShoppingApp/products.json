@@ -1,0 +1,222 @@
+{
+    "date": "April 20, 2014",
+    "products": [
+                 {
+                 "id": 100,
+                 "name": "coats",
+                 "description": "London Fog Hooded Belted Raincoat",
+                 "regular price": 20.1,
+                 "sale price": 12.34,
+                 "product photos": [
+                                    "WOMEN_01.png",
+                                    "coat1",
+                                    "coat2",
+                                    "coat3",
+                                    "coat4"
+                                    ],
+                 "colors": [
+                           "redColor",
+                           "yellowColor",
+                            "grayColor",
+                           "blueColor"
+                           ],
+                 "stores": {
+                 "store 1": "1234 6th Ave, San Francisco, CA 12345",
+                 "store 2": "888 Market str, San Francisco, CA 12345"
+                 }
+                 },
+                 {
+                 "id": 101,
+                 "name": "Jeans",
+                 "description": "Charter Club Long-Sleeve Classic Cardigan Collection ",
+                 "regular price": 22.1,
+                 "sale price": 20.34,
+                 "product photos": [
+                                    "jean0.png",
+                                    "jean2.png",
+                                    "jean3.png",
+                                    "jean1.png"
+                                    ],
+                 "colors": [
+                            "blackColor",
+                            "redColor",
+                            "blueColor"
+                            ],
+                 "stores": {
+                 "store 1": "1234 6th Ave, San Francisco, CA 12345",
+                 "store 2": "888 Market str, San Francisco, CA 12345"
+                 }
+                 },
+                 {
+                 "id": 102,
+                 "name": "Sweater",
+                 "description": "Style&co. Pleated-Back High-Low Sweater ",
+                 "regular price": 15.1,
+                 "sale price": 10.30,
+                 "product photos": [
+                                    "Sweater.jpg",
+                                    "WOMEN_02.png",
+                                    "WOMEN_03.png"
+                                    ],
+                 "colors": [
+                            "redColor",
+                            "yellowColor",
+                            "grayColor"
+                            ],
+                 "stores": {
+                 "store 1": "1234 6th Ave, San Francisco, CA 12345",
+                 "store 2": "888 Market str, San Francisco, CA 12345"
+                 }
+                 },
+                 {
+                 "id": 103,
+                 "name": "Jecket",
+                 "description": "The North Face Jacket, Denali Fleece  ",
+                 "regular price": 30.1,
+                 "sale price": 22.34,
+                 "product photos": [
+                                    "jacket.tif",
+                                    "WOMEN_02.png",
+                                    "WOMEN_03.png"
+                                    ],
+                 "colors": [
+                            "redColor",
+                            "yellowColor",
+                            "darkGrayColor",
+                            ],
+                 "stores": {
+                 "store 1": "1234 6th Ave, San Francisco, CA 12345",
+                 "store 2": "888 Market str, San Francisco, CA 12345"
+                 }
+                 },
+
+                 {
+                 "id": 104,
+                 "name": "dress",
+                 "description": "INC International Concepts Zebra-Print Shirtdress  ",
+                 "regular price": 100.1,
+                 "sale price": 80.34,
+                 "product photos": [
+                                    "dress1.png",
+                                    "dress1.png",
+                                    "WOMEN_03.png"
+                                    ],
+                 "colors": [
+                           "blackColor",
+                           "cyanColor",
+                           "blueColor"
+                           ],
+                 "stores": {
+                 "store 1": "1234 6th Ave, San Francisco, CA 12345",
+                 "store 2": "888 Market str, San Francisco, CA 12345"
+                 }
+                 },
+                 {
+                 "id": 105,
+                 "name": "skirts",
+                 "description": "Karen Scott Cargo Skort  ",
+                 "regular price": 30.1,
+                 "sale price": 23.34,
+                 "product photos": [
+                                    "WOMEN_03.png",
+                                    "WOMEN_02.png",
+                                    "WOMEN_01.png"
+                                    ],
+                 "colors": [
+                           "magentaColor",
+                           "yellowColor",
+                           "blueColor"
+                           ],
+                 "stores": {
+                 "store 1": "1234 6th Ave, San Francisco, CA 12345",
+                 "store 2": "888 Market str, San Francisco, CA 12345"
+                 }
+                 },
+                 {
+                 "id": 106,
+                 "name": "Pajamas & Robes",
+                 "description": "Charter Club Mother's Day Gown ",
+                 "regular price": 19.1,
+                 "sale price": 12.34,
+                 "product photos": [
+                                    "WOMEN_05.png",
+                                    "WOMEN_02.png",
+                                    "WOMEN_03.png"
+                                    ],
+                 "colors": [
+                           "redColor",
+                           "yellowColor",
+                           "magentaColor",
+                           ],
+                 "stores": {
+                 "store 1": "1234 6th Ave, San Francisco, CA 12345",
+                 "store 2": "888 Market str, San Francisco, CA 12345"
+                 }
+                 },
+                 {
+                 "id": 107,
+                 "name": "Shorts",
+                 "description": "Style&co. Tummy-Control Shorts ",
+                 "regular price": 15.1,
+                 "sale price": 12.34,
+                 "product photos": [
+                                    "WOMEN_04.png",
+                                    "short.jpeg",
+                                    "WOMEN_02.png",
+                                    "WOMEN_03.png"
+                                    ],
+                 "colors": [
+                           "redColor",
+                           "yellowColor",
+                           "blueColor"
+                           ],
+                 "stores": {
+                 "store 1": "1234 6th Ave, San Francisco, CA 12345",
+                 "store 2": "888 Market str, San Francisco, CA 12345"
+                 }
+                 },
+                 {
+                 "id": 108,
+                 "name": "Cardigan",
+                 "description": "Charter Club Long-Sleeve Classic Cardigan Collection",
+                 "regular price": 20.1,
+                 "sale price": 17.34,
+                 "product photos": [
+                                    "cardigan.jpg",
+                                    "WOMEN_02.png",
+                                    "WOMEN_03.png"
+                                    ],
+                 "colors": [
+                            "lightGrayColor",
+                            "redColor",
+                            "yellowColor",
+                            "grayColor"
+                            ],
+                 "stores": {
+                 "store 1": "1234 6th Ave, San Francisco, CA 12345",
+                 "store 2": "888 Market str, San Francisco, CA 12345"
+                 }
+                 },
+                 {
+                 "id": 109,
+                 "name": "Turtleneck",
+                 "description": "Charter Club Sweater, Long-Sleeve Ribbed Turtleneck ",
+                 "regular price": 33.1,
+                 "sale price": 30.34,
+                 "product photos": [
+                                    "turtleneck.jpeg",
+                                    "WOMEN_02.png",
+                                    "WOMEN_03.png"
+                                    ],
+                 "colors": [
+                           "redColor",
+                           "yellowColor",
+                           "blueColor"
+                           ],
+                 "stores": {
+                 "store 1": "1234 6th Ave, San Francisco, CA 12345",
+                 "store 2": "888 Market str, San Francisco, CA 12345"
+                 }
+                 }
+                 ]
+}

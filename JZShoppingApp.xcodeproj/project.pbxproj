@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CFD8B064190775AB0019B9DE /* coat2.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B063190775AB0019B9DE /* coat2.png */; };
+		CFD8B0671907761F0019B9DE /* coat1.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B0651907761F0019B9DE /* coat1.png */; };
+		CFD8B0681907761F0019B9DE /* coat4.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B0661907761F0019B9DE /* coat4.png */; };
+		CFD8B06A190776B50019B9DE /* coat3.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B069190776B50019B9DE /* coat3.png */; };
+		CFD8B06F190776CB0019B9DE /* jean0.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B06B190776CB0019B9DE /* jean0.png */; };
+		CFD8B070190776CB0019B9DE /* jean3.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B06C190776CB0019B9DE /* jean3.png */; };
+		CFD8B071190776CB0019B9DE /* jean2.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B06D190776CB0019B9DE /* jean2.png */; };
+		CFD8B072190776CB0019B9DE /* jean1.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B06E190776CB0019B9DE /* jean1.png */; };
+		CFD8B0741907771D0019B9DE /* Sweater.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B0731907771D0019B9DE /* Sweater.jpg */; };
+		CFD8B076190777270019B9DE /* turtleneck.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B075190777270019B9DE /* turtleneck.jpeg */; };
+		CFD8B0791907773C0019B9DE /* skirt2.tif in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B0771907773C0019B9DE /* skirt2.tif */; };
+		CFD8B07A1907773C0019B9DE /* skirt1.tif in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B0781907773C0019B9DE /* skirt1.tif */; };
+		CFD8B07C190777470019B9DE /* short.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B07B190777470019B9DE /* short.jpeg */; };
+		CFD8B07F190777C50019B9DE /* dress5.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B07D190777C50019B9DE /* dress5.png */; };
+		CFD8B080190777C50019B9DE /* dress1.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B07E190777C50019B9DE /* dress1.png */; };
+		CFD8B08219077DD20019B9DE /* jacket.tif in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B08119077DD20019B9DE /* jacket.tif */; };
+		CFD8B08419077E640019B9DE /* cardigan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B08319077E630019B9DE /* cardigan.jpg */; };
+		CFD8B08B1907A6810019B9DE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B08A1907A6800019B9DE /* Default.png */; };
+		CFD8B092190DD69D0019B9DE /* myNaviBar.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B091190DD69C0019B9DE /* myNaviBar.png */; };
+		CFD8B094190DDC160019B9DE /* store.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B093190DDC160019B9DE /* store.jpeg */; };
+		CFD8B096190DDC890019B9DE /* Shopping_Girls.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B095190DDC890019B9DE /* Shopping_Girls.png */; };
+		CFD8B09E190F66CE0019B9DE /* JZLargeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD8B09D190F66CE0019B9DE /* JZLargeImageView.m */; };
+		CFD8B0A11910CF600019B9DE /* JZProductAdditionalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD8B0A01910CF600019B9DE /* JZProductAdditionalInfo.m */; };
+		CFD8B0A719121C6B0019B9DE /* JZProductEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD8B0A619121C670019B9DE /* JZProductEdit.m */; };
+		CFDCF1FC191A04BA007A0BE1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFDCF1FB191A04BA007A0BE1 /* Default-568h@2x.png */; };
+		CFE9D30A1902E55D00500A24 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE9D3091902E55D00500A24 /* UIKit.framework */; };
+		CFE9D30C1902E55D00500A24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE9D30B1902E55D00500A24 /* Foundation.framework */; };
+		CFE9D30E1902E55D00500A24 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE9D30D1902E55D00500A24 /* CoreGraphics.framework */; };
+		CFE9D3141902E55D00500A24 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFE9D3121902E55D00500A24 /* InfoPlist.strings */; };
+		CFE9D3161902E55D00500A24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE9D3151902E55D00500A24 /* main.m */; };
+		CFE9D31A1902E55D00500A24 /* JZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE9D3191902E55D00500A24 /* JZAppDelegate.m */; };
+		CFE9D3361902E9E700500A24 /* JZWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE9D3341902E9E700500A24 /* JZWelcomeViewController.m */; };
+		CFE9D3371902E9E700500A24 /* JZWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFE9D3351902E9E700500A24 /* JZWelcomeViewController.xib */; };
+		CFE9D3411902EF6700500A24 /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = CFE9D33A1902EF6600500A24 /* products.json */; };
+		CFE9D3421902EF6700500A24 /* WOMEN_01.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE9D33B1902EF6600500A24 /* WOMEN_01.png */; };
+		CFE9D3431902EF6700500A24 /* WOMEN_02.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE9D33C1902EF6600500A24 /* WOMEN_02.png */; };
+		CFE9D3441902EF6700500A24 /* WOMEN_03.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE9D33D1902EF6600500A24 /* WOMEN_03.png */; };
+		CFE9D3451902EF6700500A24 /* WOMEN_04.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE9D33E1902EF6600500A24 /* WOMEN_04.png */; };
+		CFE9D3461902EF6700500A24 /* WOMEN_05.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE9D33F1902EF6600500A24 /* WOMEN_05.png */; };
+		CFE9D36E1903343D00500A24 /* JZProductsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE9D36D1903343D00500A24 /* JZProductsModel.m */; };
+		CFE9D3701903347E00500A24 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE9D36F1903347E00500A24 /* libsqlite3.dylib */; };
+		CFE9D38319048F2100500A24 /* JZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE9D38119048F2100500A24 /* JZViewController.m */; };
+		CFE9D38419048F2100500A24 /* JZViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFE9D38219048F2100500A24 /* JZViewController.xib */; };
+		CFE9D3871904A6F900500A24 /* JZProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE9D3861904A6F900500A24 /* JZProductCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CFD8B063190775AB0019B9DE /* coat2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coat2.png; sourceTree = "<group>"; };
+		CFD8B0651907761F0019B9DE /* coat1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coat1.png; sourceTree = "<group>"; };
+		CFD8B0661907761F0019B9DE /* coat4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coat4.png; sourceTree = "<group>"; };
+		CFD8B069190776B50019B9DE /* coat3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coat3.png; sourceTree = "<group>"; };
+		CFD8B06B190776CB0019B9DE /* jean0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jean0.png; sourceTree = "<group>"; };
+		CFD8B06C190776CB0019B9DE /* jean3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jean3.png; sourceTree = "<group>"; };
+		CFD8B06D190776CB0019B9DE /* jean2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jean2.png; sourceTree = "<group>"; };
+		CFD8B06E190776CB0019B9DE /* jean1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jean1.png; sourceTree = "<group>"; };
+		CFD8B0731907771D0019B9DE /* Sweater.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sweater.jpg; sourceTree = "<group>"; };
+		CFD8B075190777270019B9DE /* turtleneck.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = turtleneck.jpeg; sourceTree = "<group>"; };
+		CFD8B0771907773C0019B9DE /* skirt2.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = skirt2.tif; sourceTree = "<group>"; };
+		CFD8B0781907773C0019B9DE /* skirt1.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = skirt1.tif; sourceTree = "<group>"; };
+		CFD8B07B190777470019B9DE /* short.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = short.jpeg; sourceTree = "<group>"; };
+		CFD8B07D190777C50019B9DE /* dress5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dress5.png; sourceTree = "<group>"; };
+		CFD8B07E190777C50019B9DE /* dress1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dress1.png; sourceTree = "<group>"; };
+		CFD8B08119077DD20019B9DE /* jacket.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = jacket.tif; sourceTree = "<group>"; };
+		CFD8B08319077E630019B9DE /* cardigan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cardigan.jpg; sourceTree = "<group>"; };
+		CFD8B08A1907A6800019B9DE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CFD8B091190DD69C0019B9DE /* myNaviBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myNaviBar.png; sourceTree = "<group>"; };
+		CFD8B093190DDC160019B9DE /* store.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = store.jpeg; sourceTree = "<group>"; };
+		CFD8B095190DDC890019B9DE /* Shopping_Girls.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shopping_Girls.png; sourceTree = "<group>"; };
+		CFD8B09C190F66CD0019B9DE /* JZLargeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZLargeImageView.h; sourceTree = "<group>"; };
+		CFD8B09D190F66CE0019B9DE /* JZLargeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZLargeImageView.m; sourceTree = "<group>"; };
+		CFD8B09F1910CF5F0019B9DE /* JZProductAdditionalInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZProductAdditionalInfo.h; sourceTree = "<group>"; };
+		CFD8B0A01910CF600019B9DE /* JZProductAdditionalInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZProductAdditionalInfo.m; sourceTree = "<group>"; };
+		CFD8B0A519121C650019B9DE /* JZProductEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZProductEdit.h; sourceTree = "<group>"; };
+		CFD8B0A619121C670019B9DE /* JZProductEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZProductEdit.m; sourceTree = "<group>"; };
+		CFDCF1FA1918BA39007A0BE1 /* JZConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZConstants.h; sourceTree = "<group>"; };
+		CFDCF1FB191A04BA007A0BE1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		CFDCF1FE191B31EB007A0BE1 /* JZProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZProtocol.h; sourceTree = "<group>"; };
+		CFE9D3051902E55D00500A24 /* JZShoppingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JZShoppingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFE9D3091902E55D00500A24 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CFE9D30B1902E55D00500A24 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CFE9D30D1902E55D00500A24 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CFE9D3111902E55D00500A24 /* JZShoppingApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JZShoppingApp-Info.plist"; sourceTree = "<group>"; };
+		CFE9D3131902E55D00500A24 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CFE9D3151902E55D00500A24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CFE9D3171902E55D00500A24 /* JZShoppingApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JZShoppingApp-Prefix.pch"; sourceTree = "<group>"; };
+		CFE9D3181902E55D00500A24 /* JZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZAppDelegate.h; sourceTree = "<group>"; };
+		CFE9D3191902E55D00500A24 /* JZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZAppDelegate.m; sourceTree = "<group>"; };
+		CFE9D31B1902E55D00500A24 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CFE9D3331902E9E700500A24 /* JZWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZWelcomeViewController.h; sourceTree = "<group>"; };
+		CFE9D3341902E9E700500A24 /* JZWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZWelcomeViewController.m; sourceTree = "<group>"; };
+		CFE9D3351902E9E700500A24 /* JZWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JZWelcomeViewController.xib; sourceTree = "<group>"; };
+		CFE9D33A1902EF6600500A24 /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
+		CFE9D33B1902EF6600500A24 /* WOMEN_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WOMEN_01.png; sourceTree = "<group>"; };
+		CFE9D33C1902EF6600500A24 /* WOMEN_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WOMEN_02.png; sourceTree = "<group>"; };
+		CFE9D33D1902EF6600500A24 /* WOMEN_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WOMEN_03.png; sourceTree = "<group>"; };
+		CFE9D33E1902EF6600500A24 /* WOMEN_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WOMEN_04.png; sourceTree = "<group>"; };
+		CFE9D33F1902EF6600500A24 /* WOMEN_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WOMEN_05.png; sourceTree = "<group>"; };
+		CFE9D36C1903343D00500A24 /* JZProductsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZProductsModel.h; sourceTree = "<group>"; };
+		CFE9D36D1903343D00500A24 /* JZProductsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZProductsModel.m; sourceTree = "<group>"; };
+		CFE9D36F1903347E00500A24 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		CFE9D38019048F2000500A24 /* JZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZViewController.h; sourceTree = "<group>"; };
+		CFE9D38119048F2100500A24 /* JZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZViewController.m; sourceTree = "<group>"; };
+		CFE9D38219048F2100500A24 /* JZViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JZViewController.xib; sourceTree = "<group>"; };
+		CFE9D3851904A6F900500A24 /* JZProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZProductCell.h; sourceTree = "<group>"; };
+		CFE9D3861904A6F900500A24 /* JZProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZProductCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFE9D3021902E55D00500A24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFE9D3701903347E00500A24 /* libsqlite3.dylib in Frameworks */,
+				CFE9D30A1902E55D00500A24 /* UIKit.framework in Frameworks */,
+				CFE9D30C1902E55D00500A24 /* Foundation.framework in Frameworks */,
+				CFE9D30E1902E55D00500A24 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CFE9D2FA1902E55D00500A24 = {
+			isa = PBXGroup;
+			children = (
+				CFE9D30F1902E55D00500A24 /* JZShoppingApp */,
+				CFE9D3081902E55D00500A24 /* Frameworks */,
+				CFE9D3061902E55D00500A24 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFE9D3061902E55D00500A24 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFE9D3051902E55D00500A24 /* JZShoppingApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFE9D3081902E55D00500A24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CFE9D3091902E55D00500A24 /* UIKit.framework */,
+				CFE9D30B1902E55D00500A24 /* Foundation.framework */,
+				CFE9D30D1902E55D00500A24 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CFE9D30F1902E55D00500A24 /* JZShoppingApp */ = {
+			isa = PBXGroup;
+			children = (
+				CFE9D3181902E55D00500A24 /* JZAppDelegate.h */,
+				CFE9D3191902E55D00500A24 /* JZAppDelegate.m */,
+				CFE9D3511902F3F500500A24 /* ViewAndController */,
+				CFE9D3501902F3E300500A24 /* Model */,
+				CFE9D3101902E55D00500A24 /* Supporting Files */,
+			);
+			path = JZShoppingApp;
+			sourceTree = "<group>";
+		};
+		CFE9D3101902E55D00500A24 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CFE9D36F1903347E00500A24 /* libsqlite3.dylib */,
+				CFE9D34A1902EF9F00500A24 /* data */,
+				CFE9D3491902EF9500500A24 /* image */,
+				CFE9D3111902E55D00500A24 /* JZShoppingApp-Info.plist */,
+				CFE9D3121902E55D00500A24 /* InfoPlist.strings */,
+				CFE9D3151902E55D00500A24 /* main.m */,
+				CFE9D3171902E55D00500A24 /* JZShoppingApp-Prefix.pch */,
+				CFDCF1FB191A04BA007A0BE1 /* Default-568h@2x.png */,
+				CFE9D31B1902E55D00500A24 /* Default.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFE9D3471902EF7400500A24 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		CFE9D3481902EF8500500A24 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				CFE9D36C1903343D00500A24 /* JZProductsModel.h */,
+				CFE9D36D1903343D00500A24 /* JZProductsModel.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		CFE9D3491902EF9500500A24 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				CFD8B095190DDC890019B9DE /* Shopping_Girls.png */,
+				CFD8B093190DDC160019B9DE /* store.jpeg */,
+				CFD8B091190DD69C0019B9DE /* myNaviBar.png */,
+				CFD8B0651907761F0019B9DE /* coat1.png */,
+				CFD8B063190775AB0019B9DE /* coat2.png */,
+				CFD8B08A1907A6800019B9DE /* Default.png */,
+				CFD8B069190776B50019B9DE /* coat3.png */,
+				CFD8B0661907761F0019B9DE /* coat4.png */,
+				CFD8B07E190777C50019B9DE /* dress1.png */,
+				CFD8B08319077E630019B9DE /* cardigan.jpg */,
+				CFD8B07D190777C50019B9DE /* dress5.png */,
+				CFD8B06E190776CB0019B9DE /* jean1.png */,
+				CFD8B06D190776CB0019B9DE /* jean2.png */,
+				CFD8B08119077DD20019B9DE /* jacket.tif */,
+				CFD8B06C190776CB0019B9DE /* jean3.png */,
+				CFD8B06B190776CB0019B9DE /* jean0.png */,
+				CFD8B07B190777470019B9DE /* short.jpeg */,
+				CFD8B0781907773C0019B9DE /* skirt1.tif */,
+				CFD8B0771907773C0019B9DE /* skirt2.tif */,
+				CFD8B0731907771D0019B9DE /* Sweater.jpg */,
+				CFD8B075190777270019B9DE /* turtleneck.jpeg */,
+				CFE9D33B1902EF6600500A24 /* WOMEN_01.png */,
+				CFE9D33C1902EF6600500A24 /* WOMEN_02.png */,
+				CFE9D33D1902EF6600500A24 /* WOMEN_03.png */,
+				CFE9D33E1902EF6600500A24 /* WOMEN_04.png */,
+				CFE9D33F1902EF6600500A24 /* WOMEN_05.png */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
+		CFE9D34A1902EF9F00500A24 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				CFE9D33A1902EF6600500A24 /* products.json */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
+		CFE9D3501902F3E300500A24 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CFE9D3481902EF8500500A24 /* Database */,
+				CFE9D3471902EF7400500A24 /* Network */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CFE9D3511902F3F500500A24 /* ViewAndController */ = {
+			isa = PBXGroup;
+			children = (
+				CFE9D38019048F2000500A24 /* JZViewController.h */,
+				CFE9D38119048F2100500A24 /* JZViewController.m */,
+				CFE9D38219048F2100500A24 /* JZViewController.xib */,
+				CFE9D3851904A6F900500A24 /* JZProductCell.h */,
+				CFE9D3861904A6F900500A24 /* JZProductCell.m */,
+				CFE9D3331902E9E700500A24 /* JZWelcomeViewController.h */,
+				CFE9D3341902E9E700500A24 /* JZWelcomeViewController.m */,
+				CFE9D3351902E9E700500A24 /* JZWelcomeViewController.xib */,
+				CFD8B09C190F66CD0019B9DE /* JZLargeImageView.h */,
+				CFD8B09D190F66CE0019B9DE /* JZLargeImageView.m */,
+				CFD8B09F1910CF5F0019B9DE /* JZProductAdditionalInfo.h */,
+				CFD8B0A01910CF600019B9DE /* JZProductAdditionalInfo.m */,
+				CFD8B0A519121C650019B9DE /* JZProductEdit.h */,
+				CFD8B0A619121C670019B9DE /* JZProductEdit.m */,
+				CFDCF1FA1918BA39007A0BE1 /* JZConstants.h */,
+				CFDCF1FE191B31EB007A0BE1 /* JZProtocol.h */,
+			);
+			name = ViewAndController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFE9D3041902E55D00500A24 /* JZShoppingApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFE9D3231902E55D00500A24 /* Build configuration list for PBXNativeTarget "JZShoppingApp" */;
+			buildPhases = (
+				CFE9D3011902E55D00500A24 /* Sources */,
+				CFE9D3021902E55D00500A24 /* Frameworks */,
+				CFE9D3031902E55D00500A24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JZShoppingApp;
+			productName = JZShoppingApp;
+			productReference = CFE9D3051902E55D00500A24 /* JZShoppingApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFE9D2FC1902E55D00500A24 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JZ;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = JZ;
+			};
+			buildConfigurationList = CFE9D2FF1902E55D00500A24 /* Build configuration list for PBXProject "JZShoppingApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CFE9D2FA1902E55D00500A24;
+			productRefGroup = CFE9D3061902E55D00500A24 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFE9D3041902E55D00500A24 /* JZShoppingApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFE9D3031902E55D00500A24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFE9D3141902E55D00500A24 /* InfoPlist.strings in Resources */,
+				CFE9D3371902E9E700500A24 /* JZWelcomeViewController.xib in Resources */,
+				CFE9D3411902EF6700500A24 /* products.json in Resources */,
+				CFE9D3421902EF6700500A24 /* WOMEN_01.png in Resources */,
+				CFE9D3431902EF6700500A24 /* WOMEN_02.png in Resources */,
+				CFE9D3441902EF6700500A24 /* WOMEN_03.png in Resources */,
+				CFE9D3451902EF6700500A24 /* WOMEN_04.png in Resources */,
+				CFE9D3461902EF6700500A24 /* WOMEN_05.png in Resources */,
+				CFE9D38419048F2100500A24 /* JZViewController.xib in Resources */,
+				CFD8B064190775AB0019B9DE /* coat2.png in Resources */,
+				CFD8B0671907761F0019B9DE /* coat1.png in Resources */,
+				CFD8B0681907761F0019B9DE /* coat4.png in Resources */,
+				CFD8B06A190776B50019B9DE /* coat3.png in Resources */,
+				CFD8B06F190776CB0019B9DE /* jean0.png in Resources */,
+				CFD8B070190776CB0019B9DE /* jean3.png in Resources */,
+				CFD8B071190776CB0019B9DE /* jean2.png in Resources */,
+				CFD8B072190776CB0019B9DE /* jean1.png in Resources */,
+				CFD8B0741907771D0019B9DE /* Sweater.jpg in Resources */,
+				CFD8B076190777270019B9DE /* turtleneck.jpeg in Resources */,
+				CFD8B0791907773C0019B9DE /* skirt2.tif in Resources */,
+				CFD8B07A1907773C0019B9DE /* skirt1.tif in Resources */,
+				CFD8B07C190777470019B9DE /* short.jpeg in Resources */,
+				CFD8B07F190777C50019B9DE /* dress5.png in Resources */,
+				CFD8B080190777C50019B9DE /* dress1.png in Resources */,
+				CFD8B08219077DD20019B9DE /* jacket.tif in Resources */,
+				CFD8B08419077E640019B9DE /* cardigan.jpg in Resources */,
+				CFD8B08B1907A6810019B9DE /* Default.png in Resources */,
+				CFD8B092190DD69D0019B9DE /* myNaviBar.png in Resources */,
+				CFD8B094190DDC160019B9DE /* store.jpeg in Resources */,
+				CFD8B096190DDC890019B9DE /* Shopping_Girls.png in Resources */,
+				CFDCF1FC191A04BA007A0BE1 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFE9D3011902E55D00500A24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFE9D3161902E55D00500A24 /* main.m in Sources */,
+				CFE9D31A1902E55D00500A24 /* JZAppDelegate.m in Sources */,
+				CFE9D3361902E9E700500A24 /* JZWelcomeViewController.m in Sources */,
+				CFE9D36E1903343D00500A24 /* JZProductsModel.m in Sources */,
+				CFE9D38319048F2100500A24 /* JZViewController.m in Sources */,
+				CFE9D3871904A6F900500A24 /* JZProductCell.m in Sources */,
+				CFD8B09E190F66CE0019B9DE /* JZLargeImageView.m in Sources */,
+				CFD8B0A11910CF600019B9DE /* JZProductAdditionalInfo.m in Sources */,
+				CFD8B0A719121C6B0019B9DE /* JZProductEdit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CFE9D3121902E55D00500A24 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFE9D3131902E55D00500A24 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CFE9D3211902E55D00500A24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CFE9D3221902E55D00500A24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CFE9D3241902E55D00500A24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JZShoppingApp/JZShoppingApp-Prefix.pch";
+				INFOPLIST_FILE = "JZShoppingApp/JZShoppingApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CFE9D3251902E55D00500A24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JZShoppingApp/JZShoppingApp-Prefix.pch";
+				INFOPLIST_FILE = "JZShoppingApp/JZShoppingApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFE9D2FF1902E55D00500A24 /* Build configuration list for PBXProject "JZShoppingApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFE9D3211902E55D00500A24 /* Debug */,
+				CFE9D3221902E55D00500A24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFE9D3231902E55D00500A24 /* Build configuration list for PBXNativeTarget "JZShoppingApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFE9D3241902E55D00500A24 /* Debug */,
+				CFE9D3251902E55D00500A24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFE9D2FC1902E55D00500A24 /* Project object */;
+}
