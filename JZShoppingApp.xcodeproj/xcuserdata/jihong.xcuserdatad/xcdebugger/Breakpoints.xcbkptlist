@@ -203,19 +203,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JZShoppingApp/JZProductEdit.m"
-         timestampString = "421268530.24204"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "196"
-         endingLineNumber = "196"
-         landmarkName = "-saveChanges:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JZShoppingApp/JZProductEdit.m"
          timestampString = "421269578.343936"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"

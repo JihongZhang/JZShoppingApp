@@ -192,23 +192,6 @@ enum widgetIndex{
         [errorInfo appendString:@"Photo "];
     }
     
-    /*
-    if(self.textFieldName.text.length == 0){
-        [errorInfo appendString:@"Name "];
-    }
-    if(self.textFieldRegPrice.text.length == 0){
-        [errorInfo appendString:@"RegPrice "];
-    }
-    if(self.textFieldSalePrice.text == 0){
-        [errorInfo appendString:@"SalePrice "];
-    }
-    if(self.textFieldColor.text==0){
-        [errorInfo appendString:@"Colors "];
-    }
-    if(self.textFieldPhoto.text==0){
-        [errorInfo appendString:@"Photos "];
-    }
-     */
     
     //TODO: add more checking for all the input fields
     if(errorInfo.length > 1){
