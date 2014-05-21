@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JZShoppingApp/JZProductEdit.m"
-         timestampString = "421269668.928154"
+         timestampString = "422264308.825505"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "452"
-         endingLineNumber = "452"
+         startingLineNumber = "542"
+         endingLineNumber = "542"
          landmarkName = "-initWithProductCell:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -112,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JZShoppingApp/JZProductEdit.m"
-         timestampString = "421219163.959864"
+         timestampString = "422264308.825505"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "132"
-         endingLineNumber = "132"
+         startingLineNumber = "157"
+         endingLineNumber = "157"
          landmarkName = "-addButton:inMyView:withTitle:withFfram:select:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -125,11 +125,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JZShoppingApp/JZProductEdit.m"
-         timestampString = "421269668.928154"
+         timestampString = "422264308.825505"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "329"
-         endingLineNumber = "329"
+         startingLineNumber = "403"
+         endingLineNumber = "403"
          landmarkName = "-initWithProductCell:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -138,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JZShoppingApp/JZProductEdit.m"
-         timestampString = "421268530.24204"
+         timestampString = "422264308.825505"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "224"
-         endingLineNumber = "224"
+         startingLineNumber = "294"
+         endingLineNumber = "294"
          landmarkName = "-saveChanges:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -151,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JZShoppingApp/JZProductEdit.m"
-         timestampString = "421268530.24204"
+         timestampString = "422264308.825505"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "227"
-         endingLineNumber = "227"
+         startingLineNumber = "297"
+         endingLineNumber = "297"
          landmarkName = "-saveChanges:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JZShoppingApp/JZProductEdit.m"
-         timestampString = "421269668.928154"
+         timestampString = "422264308.825505"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "446"
-         endingLineNumber = "446"
+         startingLineNumber = "536"
+         endingLineNumber = "536"
          landmarkName = "-initWithProductCell:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -177,11 +177,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JZShoppingApp/JZProductEdit.m"
-         timestampString = "421268530.24204"
+         timestampString = "422264308.825505"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "220"
-         endingLineNumber = "220"
+         startingLineNumber = "290"
+         endingLineNumber = "290"
          landmarkName = "-saveChanges:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -203,12 +203,90 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JZShoppingApp/JZProductEdit.m"
-         timestampString = "421269578.343936"
+         timestampString = "422264308.825505"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "240"
-         endingLineNumber = "240"
+         startingLineNumber = "310"
+         endingLineNumber = "310"
          landmarkName = "-saveChanges:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JZShoppingApp/JZCheckBox.m"
+         timestampString = "422059327.219124"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "86"
+         endingLineNumber = "86"
+         landmarkName = "-setChecked:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JZShoppingApp/JZProductEdit.m"
+         timestampString = "422264308.825505"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "697"
+         endingLineNumber = "697"
+         landmarkName = "-buttonDeleteStoreCB"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JZShoppingApp/JZProductEdit.m"
+         timestampString = "422264308.825505"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "293"
+         endingLineNumber = "293"
+         landmarkName = "-saveChanges:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JZShoppingApp/JZProductEdit.m"
+         timestampString = "422264308.825505"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "599"
+         endingLineNumber = "599"
+         landmarkName = "-keyboardWasShown:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JZShoppingApp/JZProductEdit.m"
+         timestampString = "422264308.825505"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "692"
+         endingLineNumber = "692"
+         landmarkName = "-buttonDeleteStoreCB"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JZShoppingApp/JZProductEdit.m"
+         timestampString = "422264308.825505"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "675"
+         endingLineNumber = "675"
+         landmarkName = "-buttonAddStoreCB"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

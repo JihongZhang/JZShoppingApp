@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JZProductCell.h"
+#import "JZCheckBox.h"
 
 
 @protocol JZProtocol <NSObject>
@@ -22,6 +23,7 @@
 -(void) buttonImageTappedOnCell:(id)sender;
 -(void) buttonDetailTappedOnCell:(id)sender;
 @end
+
 
 
 /** product edit event protocol

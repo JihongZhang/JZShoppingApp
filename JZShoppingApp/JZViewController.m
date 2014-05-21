@@ -61,9 +61,12 @@ static NSString *CellIdentifier = @"UITableViewCell";
     
     
     JZProductEdit *productEdit = [[JZProductEdit alloc] initWithProductCell:productCell];
-    productEdit.isEdit = FALSE;
+    productEdit.pageTypeIsAdding = TRUE;
     productEdit.delegate = self;
     productEdit.navigationItem.title = @"Add new product";
+    
+    //navigation bar back button callback
+    productEdit.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:productEdit action:@selector(checkIfPageEdited)];
     
     
     //ToolBar
@@ -249,11 +252,13 @@ static NSString *CellIdentifier = @"UITableViewCell";
     //vender
     NSIndexPath *indepath = [self.tableView indexPathForCell:sender];
     JZProductEdit *productEdit = [[JZProductEdit alloc] initWithProductCell:[self.data objectAtIndex:indepath.row]];
-    productEdit.isEdit = TRUE;
+    productEdit.pageTypeIsAdding = FALSE;
     productEdit.delegate = self;
     productEdit.navigationItem.title = @"Edit";
-    
-    //ToolBar
+    //navigation bar back button callback
+    productEdit.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:productEdit action:@selector(checkIfPageEdited)];
+
+    //ToolBar for save and cacel button
     UIScreen *mainScreen = [UIScreen mainScreen];
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, mainScreen.applicationFrame.size.height- myTableViewCellHight/2-44, mainScreen.applicationFrame.size.width, myTableViewCellHight/2)];
     toolBar.barStyle = UIBarStyleDefault;

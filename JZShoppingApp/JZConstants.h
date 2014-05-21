@@ -22,9 +22,10 @@
 #define myFontSize 15
 #define myTextViewHight myLabelHight *2 
 
+#define myCheckboxImageWidth 25
+#define myCheckboxImageHeight 25
 
-//TODO need to dynamically get the keyboard size
-#define keyboardSizeHeight 235
+ 
 
 
 #endif

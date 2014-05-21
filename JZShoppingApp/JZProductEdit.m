@@ -12,6 +12,8 @@
 #import "JZProductsModel.h"
 #import "JZConstants.h"
 #import "JZProtocol.h"
+#import "JZCheckBox.h"
+
 
 
 @interface JZProductEdit ()
@@ -24,18 +26,29 @@
 @property (nonatomic ) UITextField *textFieldRegPrice;
 @property (nonatomic) UITextField *textFieldSalePrice;
 
-@property (nonatomic) NSMutableArray *storesInfo;
-@property (nonatomic) NSMutableArray *addrsInfo;
-
 @property (nonatomic) UITextField *textFieldPhoto;
 @property (nonatomic) UITextField *textFieldColor;
 @property (nonatomic) UITextField *textFieldDescript;
+
+@property (nonatomic) NSMutableArray *storesInfo;
+@property (nonatomic) NSMutableArray *addrsInfo;
+@property (nonatomic) NSMutableArray *checkBoxInfo;
+
+// for holding the display information of stores info
+// if cancel edit: keep the product cell info untouched
+// if save the edit, copy storesForDisplay to (productCell)item.stores
+@property (nonatomic) NSMutableDictionary *storesForDisplay;
+@property (nonatomic) int numberOfDisplayStores;
+
 
 @property (nonatomic) UIScrollView *myScrollView;
 @property (nonatomic) UIFont *fontSize;
 @property (nonatomic) CGFloat  myScrollViewHeight;
 
 @property (nonatomic) Boolean isEdited;
+
+
+@property (nonatomic) CGRect   activeFieldFrame;
 
 @end
 
@@ -54,7 +67,7 @@
 }
 
 #pragma mark addTextField with placeholder= @"Required field"
--(void)addTextField:(UITextField*)textField inMyView:(UIScrollView*)myView withText:(NSString*)text withFram:(CGRect*)frame
+-(void)addTextField:(UITextField*)textField inMyView:(UIScrollView*)myView withText:(NSString*)text withFrame:(CGRect*)frame
 {
     textField.frame = *frame;
     textField.delegate = self;
@@ -67,7 +80,7 @@
 }
 
 #pragma mark addTextField with placeholder(passed in)
--(void)addTextField:(UITextField*)textField inMyView:(UIScrollView*)myView withText:(NSString*)text withFfram:(CGRect*)frame placeholder:(NSString*)placeholder
+-(void)addTextField:(UITextField*)textField inMyView:(UIScrollView*)myView withText:(NSString*)text withFrame:(CGRect*)frame placeholder:(NSString*)placeholder
 {
     textField.frame = *frame;
     textField.delegate = self;
@@ -90,34 +103,47 @@
     textView.clipsToBounds = YES;
     textView.text = text;
     [myView  addSubview:textView];
-    
 }
 
 #pragma mark addStoreName
--(void)addStoreName:(NSString*)name address:(NSString*)addr inLayoutIndex:(int)index inObjetIndex:(int)objIndex
+-(void)addStoreName:(NSString*)name address:(NSString*)addr inLayoutIndex:(int)index inObjectIndex:(int)objIndex
 {
-    UITextField *textFieldStoreName = [[UITextField alloc]init];
+    UITextField *textFieldStoreName = [[UITextField alloc] init];
     UITextView *textViewAddr = [[UITextView alloc]init];
-
-    CGFloat storeNameX = myMargin;
+    
+    CGFloat storeNameX = myMargin * 4; //move 5 margin size for checkbox
     CGFloat storeNameY = myLabelHight * index + myMargin * (index + 1);
-    CGFloat storeNameWidth = self.view.frame.size.width - myMargin * 2;
+    CGFloat storeNameWidth =  CGRectGetWidth(self.view.frame) - storeNameX - myMargin;
     CGFloat storeNameHeight = myTextFieldHight;
     CGRect frame = CGRectMake(storeNameX, storeNameY, storeNameWidth, storeNameHeight);
-    [self addTextField:textFieldStoreName inMyView:self.myScrollView withText:name withFfram:&frame placeholder:@"Store Name"];
+    [self addTextField:textFieldStoreName inMyView:self.myScrollView withText:name withFrame:&frame placeholder:@"Store Name"];
+    
+    //add check box next to the store name
+    CGFloat checkX = myMargin;
+    CGFloat checkY = storeNameY;
+    CGFloat checkWidth = myCheckboxImageWidth;
+    CGFloat checkHeight = myCheckboxImageHeight;
+    frame = CGRectMake(checkX, checkY, checkWidth, checkHeight);
+    JZCheckBox *checkBox = [[JZCheckBox alloc] initWithKey:name index:objIndex andFrame:frame];
+    checkBox.delegate = self;
+    [self.myScrollView addSubview:checkBox];
     
     index ++;
     CGFloat txtStoreX = myMargin;
     CGFloat txtStoreY = storeNameY + storeNameHeight + myMargin;
-    CGFloat txtStoreWidth = self.view.frame.size.width - myMargin * 2;
+    CGFloat txtStoreWidth =  CGRectGetWidth(self.view.frame) - myMargin * 2;
     CGFloat txtStoreHeight = myTextViewHight;
     
     frame = CGRectMake(txtStoreX,txtStoreY,txtStoreWidth,txtStoreHeight);
     [self addTextView:textViewAddr inMyView:self.myScrollView withText:addr withFram:&frame];
-    
+
+    textFieldStoreName.tag = objIndex+100;
+    textViewAddr.tag = objIndex+100;
     self.storesInfo[objIndex] = textFieldStoreName;
     self.addrsInfo[objIndex] = textViewAddr;
-
+    self.checkBoxInfo[objIndex] = checkBox;
+    
+    [self.storesForDisplay setObject:addr forKey:name];
 }
 
 #pragma mark addButton
@@ -135,12 +161,34 @@
  
 }
 
+
+#pragma mark add store name and store address if the store name is not null
+//-(void)storeInfoLayoutAtIndex:(int)index forProduct:(JZProductCell*)productCell
+-(void)storeInfoLayoutAtIndex:(int)index forStores:(NSDictionary*)stores
+{
+    NSArray *storeNames = [stores allKeys];
+    storeNames = [storeNames sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    for(int i=0; i< storeNames.count; i++){
+        if( i < storeNames.count){
+            if( [[storeNames objectAtIndex:i] length] < 1){
+                continue;
+            }
+            NSString *addr = [stores objectForKey:storeNames[i]];
+            self.numberOfDisplayStores++;
+            [self addStoreName:storeNames[i] address:addr  inLayoutIndex:index  inObjectIndex:i];
+        }  
+        index += 3; //store name + textView height = 2 * myLabelHight
+    }
+}
+
+
+
 #pragma mark widgetIndex
 // this is for internal use only
 // this is the the main widgets layout control
 // if you cahnge the order in it, the related widget layout
 // position will be changed as well
-enum widgetIndex{
+typedef NS_ENUM(NSInteger, editPageWidgetIndex){
     //savebuttonIndex = 0,   I use tooBarButton to replace them
     nameIndex = 0,
     priceLabelIndex,
@@ -151,10 +199,9 @@ enum widgetIndex{
     colorIndex,
     descriptionLabelIndex,
     descriptionIndex,
-    stroeLabelIndex,
+    seperateLineIndex,
+    storeLabelIndex,
     storeNameIndex,
-    storeAddrLabelIndex,
-    storeAddrIndex,
 };
 
 -(int)trimmingAllWhiteSpace:(NSString*)text
@@ -163,7 +210,31 @@ enum widgetIndex{
     return text.length;
 }
 
-#pragma mark - button click callback
+#pragma mark - page editing checking and alarm
+-(void)checkIfPageEdited
+{
+    if(self.isEdited){
+        UIAlertView  *alert = [[UIAlertView alloc] initWithTitle:@"Page has been edited" message:nil delegate:self cancelButtonTitle:@"Cancel Edit" otherButtonTitles:@"Save Edit", nil];
+        alert.tag = 11;
+        [alert show];
+        return;
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark alarm for edit and add product  
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 11) { //for edit page and add page
+        if (buttonIndex == 0) { //cancel editing in the page
+          [self.navigationController popViewControllerAnimated:YES];
+        }else{   //save editing in the page
+            [self saveChanges:self];
+        }
+    }
+}
+
+#pragma mark - button save and cancel click callback
 #pragma mark saveChanges
 -(void)saveChanges:(id)sender
 {
@@ -192,7 +263,6 @@ enum widgetIndex{
         [errorInfo appendString:@"Photo "];
     }
     
-    
     //TODO: add more checking for all the input fields
     if(errorInfo.length > 1){
         UIAlertView *errorAlertView =[[UIAlertView alloc] initWithTitle:@"Missing fields:" message:errorInfo delegate:self cancelButtonTitle:@"Cancel Save" otherButtonTitles:nil, nil];
@@ -216,11 +286,12 @@ enum widgetIndex{
     NSArray *photos = [photoStr componentsSeparatedByString:@","];
     item.images = [photos mutableCopy];
 
-    
+    //for stores info
+    self.item.stores = [self.storesForDisplay mutableCopy];
     NSMutableArray *stores = [[NSMutableArray alloc] init];
     NSMutableArray *addresses = [[NSMutableArray alloc] init];
-    int j =0;
-    for(int i=0; i< maxStoresAllowedForEachProduct; i++){
+    int j =0;    
+    for(int i=0; i< self.storesInfo.count; i++){
         UITextView *textField = self.storesInfo[i];
         UITextView *textView = self.addrsInfo[i];
         NSString *store = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -243,7 +314,7 @@ enum widgetIndex{
     //save the data to database
     int productId = item.productId;
     
-    if(self.isEdit == TRUE){ //save edit
+    if(self.pageTypeIsAdding == FALSE){ //page is for edit product: save edit
         //save the data to database
         if(productId > 0){ // if product id <= 0, do data save in DB
             [JZProductsModel deleteOneProductFromDb:productId];
@@ -251,9 +322,8 @@ enum widgetIndex{
         }
         if ([self.delegate respondsToSelector:@selector(onSaveEditSuccess:)]) {
             [self.delegate onSaveEditSuccess:item];
-        }
-        
-    }else{ //add product
+        }        
+    }else{ //page is for adding product: add product
         item.productId = 0;
         [JZProductsModel insertOneProductToDb:item];
         
@@ -280,6 +350,9 @@ enum widgetIndex{
     self = [super init];
     
     if(self){
+        
+        [self registerForKeyboardNotifications];
+        
         //init widgets that need too hold the values
         self.buttonSaveEdit = [[UIButton alloc] init];
         self.buttonResetEdit = [[UIButton alloc] init];
@@ -290,35 +363,37 @@ enum widgetIndex{
         self.textFieldColor = [[UITextField alloc] init];
         self.textFieldDescript = [[UITextField alloc] init];
         self.item = productCell;
+        self.storesForDisplay = [[NSMutableDictionary alloc] init];
+        self.numberOfDisplayStores = 0;
         
         self.fontSize = [UIFont systemFontOfSize:myFontSize];
-        enum widgetIndex index ;
+        enum editPageWidgetIndex widgetIndex ;
         CGRect frame;
         
         self.isEdited = FALSE;
          
         //product name
-        index = nameIndex;
+        widgetIndex = nameIndex;
         CGFloat labelX =  myMargin;
-        CGFloat labelY = myLabelHight * index + myMargin * (index + 1);
-        CGFloat labelWidth = (self.view.frame.size.width - myMargin * 3)/5;
+        CGFloat labelY = myLabelHight * widgetIndex + myMargin * (widgetIndex + 1);
+        CGFloat labelWidth = ( CGRectGetWidth(self.view.frame) - myMargin * 3)/5;
         frame = CGRectMake(labelX, labelY, labelWidth, myLabelHight);
         [self addLabelInMyView:self.myScrollView withText:@"Name:" withFram:&frame];
         
         CGFloat fieldX= labelX + labelWidth + myMargin;
-        CGFloat fieldY = myLabelHight * index + myMargin * (index + 1);
-        CGFloat fieldWidth = (self.view.frame.size.width - myMargin * 3)/5 *4;
+        CGFloat fieldY = myLabelHight * widgetIndex + myMargin * (widgetIndex + 1);
+        CGFloat fieldWidth = ( CGRectGetWidth(self.view.frame) - myMargin * 3)/5 *4;
         CGFloat fieldHeight = myLabelHight;
         frame = CGRectMake(fieldX, fieldY, fieldWidth, fieldHeight);
         //self.textFieldName = [[UITextField alloc] init];
         
-        [self addTextField:self.textFieldName inMyView:self.myScrollView withText:productCell.name withFram:&frame];
+        [self addTextField:self.textFieldName inMyView:self.myScrollView withText:productCell.name withFrame:&frame];
         
         //price
-        index = priceLabelIndex;
+        widgetIndex = priceLabelIndex;
         CGFloat regPriceX = myMargin;
-        CGFloat regPriceY =  myLabelHight * index + myMargin * (index + 1);
-        CGFloat regPriceWidth = (self.view.frame.size.width - myMargin * 3)/2;
+        CGFloat regPriceY =  myLabelHight * widgetIndex + myMargin * (widgetIndex + 1);
+        CGFloat regPriceWidth = ( CGRectGetWidth(self.view.frame) - myMargin * 3)/2;
         CGFloat regPriceHeight = myLabelHight;
         frame = CGRectMake(myMargin, regPriceY, regPriceWidth , regPriceHeight);
         [self addLabelInMyView:self.myScrollView withText:@"Reg. price:" withFram:&frame];
@@ -328,32 +403,32 @@ enum widgetIndex{
         [self addLabelInMyView:self.myScrollView withText:@"Sale price:" withFram:&frame];
                 
         //textfield
-        index = priceIndex;
+        widgetIndex = priceIndex;
         CGFloat regTextFieldX = regPriceX ;
-        CGFloat regTextFieldY = myLabelHight * index + myMargin * (index + 1);
+        CGFloat regTextFieldY = myLabelHight * widgetIndex + myMargin * (widgetIndex + 1);
         CGFloat regTextFieldWidth = regPriceWidth;
         CGFloat regTextFieldHeight = myTextFieldHight;
         frame = CGRectMake(regTextFieldX, regTextFieldY, regTextFieldWidth, regTextFieldHeight);
-        [self addTextField:self.textFieldRegPrice inMyView:self.myScrollView withText:[NSString stringWithFormat:@"$%.2f", [productCell regPrice]] withFram:&frame];
+        [self addTextField:self.textFieldRegPrice inMyView:self.myScrollView withText:[NSString stringWithFormat:@"$%.2f", [productCell regPrice]] withFrame:&frame];
         
         CGFloat saleTextFieldX = regTextFieldX + regTextFieldWidth + myMargin;
         CGFloat saleTextFieldY = regTextFieldY ;
         frame = CGRectMake(saleTextFieldX, saleTextFieldY, regTextFieldWidth, regTextFieldHeight);
-        [self addTextField:self.textFieldSalePrice inMyView:self.myScrollView withText:[NSString stringWithFormat:@"$%.2f", [productCell salePrice]] withFram:&frame];
+        [self addTextField:self.textFieldSalePrice inMyView:self.myScrollView withText:[NSString stringWithFormat:@"$%.2f", [productCell salePrice]] withFrame:&frame];
    
         //photo
-        index = photoLabelIndex;
+        widgetIndex = photoLabelIndex;
         CGFloat photoX = myMargin;
-        CGFloat photoY = myLabelHight * index + myMargin * (index + 1);
-        CGFloat photoWidth = self.view.frame.size.width - myMargin * 2;
+        CGFloat photoY = myLabelHight * widgetIndex + myMargin * (widgetIndex + 1);
+        CGFloat photoWidth =  CGRectGetWidth(self.view.frame) - myMargin * 2;
         CGFloat photoHeight = myLabelHight;
         frame = CGRectMake(photoX, photoY, photoWidth, photoHeight);
         [self addLabelInMyView:self.myScrollView withText:@"Product photos (max allowed is 5):" withFram:&frame];
         
-        index = photoIndex;
+        widgetIndex = photoIndex;
         CGFloat txtPhotoX = myMargin;
-        CGFloat txtPhotoY = myLabelHight * index + myMargin * (index + 1);
-        CGFloat txtPhotoWidth = self.view.frame.size.width - myMargin * 2;
+        CGFloat txtPhotoY = myLabelHight * widgetIndex + myMargin * (widgetIndex + 1);
+        CGFloat txtPhotoWidth =  CGRectGetWidth(self.view.frame) - myMargin * 2;
         CGFloat txtPhotoHeight = myTextFieldHight;
         NSString *images = @"";
         if(productCell.images.count > 0){
@@ -364,21 +439,21 @@ enum widgetIndex{
             }
         }
         frame = CGRectMake(txtPhotoX,txtPhotoY,txtPhotoWidth,txtPhotoHeight);
-        [self addTextField:self.textFieldPhoto inMyView:self.myScrollView withText:images withFram:&frame];
+        [self addTextField:self.textFieldPhoto inMyView:self.myScrollView withText:images withFrame:&frame];
         
         //color
-        index = colorLabelIndex;
+        widgetIndex = colorLabelIndex;
         CGFloat colorX = myMargin;
-        CGFloat colorY = myLabelHight * index + myMargin * (index + 1);
-        CGFloat colorWidth = self.view.frame.size.width - myMargin * 2;
+        CGFloat colorY = myLabelHight * widgetIndex + myMargin * (widgetIndex + 1);
+        CGFloat colorWidth =  CGRectGetWidth(self.view.frame) - myMargin * 2;
         CGFloat colorHeight = myLabelHight;
         frame = CGRectMake(colorX, colorY, colorWidth, colorHeight);
         [self addLabelInMyView:self.myScrollView withText:@"Product colors (max allowed is 5):" withFram:&frame];
         
-        index = colorIndex;
+        widgetIndex = colorIndex;
         CGFloat txtColorX = myMargin;
-        CGFloat txtColorY = myLabelHight * index + myMargin * (index + 1);
-        CGFloat txtColorWidth = self.view.frame.size.width - myMargin * 2;
+        CGFloat txtColorY = myLabelHight * widgetIndex + myMargin * (widgetIndex + 1);
+        CGFloat txtColorWidth =  CGRectGetWidth(self.view.frame) - myMargin * 2;
         CGFloat txtColorHeight = myTextFieldHight;
         frame = CGRectMake(txtColorX,txtColorY,txtColorWidth,txtColorHeight);
         NSString *colors = @"";
@@ -389,69 +464,84 @@ enum widgetIndex{
                 colors = [colors stringByAppendingString:[productCell.colors objectAtIndex:i]];
             }
         }
-        [self addTextField:self.textFieldColor inMyView:self.myScrollView withText:colors withFram:&frame];
+        [self addTextField:self.textFieldColor inMyView:self.myScrollView withText:colors withFrame:&frame];
         
         //description
-        index = descriptionLabelIndex;
+        widgetIndex = descriptionLabelIndex;
         CGFloat descriptX = myMargin;
-        CGFloat descriptY = myLabelHight * index + myMargin * (index + 1);
-        CGFloat descriptWidth = self.view.frame.size.width - myMargin * 2;
+        CGFloat descriptY = myLabelHight * widgetIndex + myMargin * (widgetIndex + 1);
+        CGFloat descriptWidth =  CGRectGetWidth(self.view.frame) - myMargin * 2;
         CGFloat descriptHeight = myLabelHight;
         frame = CGRectMake(descriptX, descriptY, descriptWidth, descriptHeight);
         [self addLabelInMyView:self.myScrollView withText:@"Product description:" withFram:&frame];
         
-        index = descriptionIndex;
+        widgetIndex = descriptionIndex;
         CGFloat txtDescriptX = myMargin;
-        CGFloat txtDescriptY = myLabelHight * index + myMargin * (index + 1);
-        CGFloat txtDescriptWidth = self.view.frame.size.width - myMargin * 2;
+        CGFloat txtDescriptY = myLabelHight * widgetIndex + myMargin * (widgetIndex + 1);
+        CGFloat txtDescriptWidth =  CGRectGetWidth(self.view.frame) - myMargin * 2;
         CGFloat txtDescriptHeight = myTextFieldHight;
         frame = CGRectMake(txtDescriptX,txtDescriptY,txtDescriptWidth,txtDescriptHeight);
-        [self addTextField:self.textFieldDescript inMyView:self.myScrollView withText:productCell.description withFram:&frame];
+        [self addTextField:self.textFieldDescript inMyView:self.myScrollView withText:productCell.description withFrame:&frame];
+        
+        //seperate line
+        widgetIndex = seperateLineIndex;
+        CGFloat lineX = myMargin * 2;
+        CGFloat lineY = myLabelHight * widgetIndex + myMargin * (widgetIndex + 1) + myLabelHight/2;
+        CGFloat lineWidth =  CGRectGetWidth(self.view.frame) - myMargin * 4;
+        CGFloat lineHeight = 1;
+        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(lineX,lineY,lineWidth,lineHeight)];
+        lineView.backgroundColor = [UIColor grayColor];
+        [self.myScrollView addSubview:lineView];
+        
         
         //label stores
-        index = stroeLabelIndex;
+        widgetIndex = storeLabelIndex;
         CGFloat storeX = myMargin;
-        CGFloat storeY = myLabelHight * index + myMargin * (index + 1);
-        CGFloat storeWidth = self.view.frame.size.width - myMargin * 2;
+        CGFloat storeY = myLabelHight * widgetIndex + myMargin * (widgetIndex + 1);
+        CGFloat storeWidth =  CGRectGetWidth(self.view.frame)/2 - myMargin * 2 - 20;
         CGFloat storeHeight = myLabelHight;
         frame = CGRectMake(storeX, storeY, storeWidth, storeHeight);
-        [self addLabelInMyView:self.myScrollView withText:@"Product in stores (optional):" withFram:&frame];
+        [self addLabelInMyView:self.myScrollView withText:@"Product in stores:" withFram:&frame];
+        //button Add
+        CGFloat buttonAddX = storeX + storeWidth + myMargin;
+        CGFloat buttonAddY = storeY;
+        CGFloat buttonAddWidth =  CGRectGetWidth(self.view.frame)/4 - myMargin * 2;
+        CGFloat buttonAddHeight = myLabelHight;
+        frame = CGRectMake(buttonAddX, buttonAddY, buttonAddWidth, buttonAddHeight);
+        UIButton *buttonAdd = [[UIButton alloc] init];
+        [self addButton:buttonAdd inMyView:self.myScrollView withTitle:@"Add" withFfram:&frame select:@"buttonAddStoreCB"];
+        //button Delete
+        CGFloat buttonDeleteX = buttonAddX + buttonAddWidth + myMargin;
+        CGFloat buttonDeleteY = storeY;
+        CGFloat buttonDeleteWidth =  CGRectGetWidth(self.view.frame)/4 - myMargin * 2;
+        CGFloat buttonDeleteHeight = myLabelHight;
+        frame = CGRectMake(buttonDeleteX, buttonDeleteY, buttonDeleteWidth, buttonDeleteHeight);
+        UIButton *buttonDelete = [[UIButton alloc] init];
+        [self addButton:buttonDelete inMyView:self.myScrollView withTitle:@"Delete" withFfram:&frame select:@"buttonDeleteStoreCB"];
+        
         
         //list of store name & addr
-        index = storeNameIndex;
-        [productCell.stores removeObjectForKey:@""];
-        [productCell.stores removeObjectForKey:@" "];
-        NSArray *storeNames = [productCell.stores allKeys];;
-        storeNames = [storeNames sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
         self.storesInfo = [[NSMutableArray alloc] init];
         self.addrsInfo = [[NSMutableArray alloc] init];
-        for(int i=0; i< maxStoresAllowedForEachProduct; i++){
-            if( i < storeNames.count){
-                if( [[storeNames objectAtIndex:i] length] < 1){
-                    continue;
-                }
-                NSString *addr = [productCell.stores objectForKey:storeNames[i]];
-                [self addStoreName:storeNames[i] address:addr  inLayoutIndex:index  inObjetIndex:i];
-            }else{
-                [self addStoreName:@"" address:@"" inLayoutIndex:index  inObjetIndex:i];
-            }
-            index += 3; //store name + textView height = 2 * myLabelHight
-        }
+        self.checkBoxInfo = [[NSMutableArray alloc] init];
+        widgetIndex = storeNameIndex;
+        [productCell.stores removeObjectForKey:@""];
+        [productCell.stores removeObjectForKey:@" "];
+        [self storeInfoLayoutAtIndex:widgetIndex forStores:productCell.stores];
+        
         
         //make the content size large enough to hole all the widgets
-        //if we already have 5 store, only need to plus 2 as extra
-        //othewise need to reserve the space for the stores info
-        index = index + (storeNames.count >= maxStoresAllowedForEachProduct ? 2: (maxStoresAllowedForEachProduct * 3 + 2));
-        CGFloat lastY = myLabelHight * index + myMargin * (index + 1);
-        self.myScrollViewHeight = self.view.frame.size.height > lastY? self.view.frame.size.height : lastY;
-        self.myScrollView.contentSize = CGSizeMake(self.view.frame.size.width,  self.myScrollViewHeight);
+        // maxStoresAllowedForEachProduct * 3 * myLabelHight -- 5* each store info
+        // plus 5 * myLabelHight as extra
+        CGFloat lastY = widgetIndex * myLabelHight + myMargin * (widgetIndex + 1) + ( maxStoresAllowedForEachProduct * (myLabelHight + myMargin) * 3 ) + myLabelHight * 5;
+        self.myScrollViewHeight =  CGRectGetHeight(self.view.frame) > lastY?  CGRectGetHeight(self.view.frame) : lastY;
+        self.myScrollView.contentSize = CGSizeMake( CGRectGetWidth(self.view.frame),  self.myScrollViewHeight);
         
         [self.view addSubview:self.myScrollView];
     }
     
     return self;
 }
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -467,11 +557,12 @@ enum widgetIndex{
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-     self.myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+     self.myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0,  CGRectGetWidth(self.view.frame),  CGRectGetHeight(self.view.frame))];
     self.myScrollView.scrollEnabled=YES;
     self.myScrollView.showsHorizontalScrollIndicator = YES;
     self.myScrollView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.myScrollView];
+    self.isEdited = false;
 }
 
 - (void)didReceiveMemoryWarning
@@ -481,29 +572,62 @@ enum widgetIndex{
 }
 
 
-#pragma mark - Text field delegate
-//TODO need to dynamically get the keyboard size 
-//const int keyboardSizeHeight = 235;
+#pragma mark - Handle Notifications
+#pragma mark Key board notification
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
 
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height+CGRectGetHeight(self.activeFieldFrame), 0.0);
+    self.myScrollView.contentInset = contentInsets;
+    self.myScrollView.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= (kbSize.height + self.navigationController.navigationBar.frame.size.height);
+
+    if (!CGRectContainsPoint(aRect, self.activeFieldFrame.origin) ) {
+        CGRect frame = CGRectMake(CGRectGetMinX(self.activeFieldFrame), CGRectGetMaxY(self.activeFieldFrame), CGRectGetWidth(self.activeFieldFrame), CGRectGetHeight(self.activeFieldFrame));
+        [self.myScrollView scrollRectToVisible:frame animated:YES];
+    }
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.myScrollView.contentInset = contentInsets;
+    self.myScrollView.scrollIndicatorInsets = contentInsets;
+}
+
+
+#pragma mark - Text field delegate
 #pragma mark textFieldDidBeginEditing
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
-    CGFloat framHeight = self.view.frame.size.height;
-    CGFloat visibalHeight = framHeight - keyboardSizeHeight;
-    CGFloat textFieldBottomY = textField.frame.origin.y + textField.frame.size.height/2;
-    CGFloat gap = textFieldBottomY - visibalHeight;    
-
-    if(textFieldBottomY > visibalHeight){
-        CGPoint scrollPoint = CGPointMake(0.0, gap);        
-        [self.myScrollView setContentOffset:scrollPoint animated:YES];
-        //[self.myScrollView setContentSize:CGSizeMake(300, 350)];
-    }
+    self.activeFieldFrame = textField.frame;
+    self.isEdited = TRUE;
 }
 
 #pragma mark textFieldDidEndEditing
 -(void)textFieldDidEndEditing:(UITextField *)textField {
-    //keyboard will hide
-    self.myScrollView.contentSize = CGSizeMake(self.view.frame.size.width,  self.myScrollViewHeight);
-    self.isEdited = TRUE;
+    self.activeFieldFrame = CGRectMake(0, 0, 0, 0);
+    if(textField.tag >= 100){
+        [self.storesForDisplay setObject:self.addrsInfo[textField.tag-100] forKey:self.addrsInfo[textField.tag-100]];
+    }
 }
 
 #pragma mark textFieldShouldReturn
@@ -525,24 +649,71 @@ enum widgetIndex{
 #pragma mark textViewDidBeginEditing
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
-    CGFloat framHeight = self.view.frame.size.height;
-    CGFloat visibalHeight = framHeight - keyboardSizeHeight;
-    CGFloat textFieldBottomY = textView.frame.origin.y + textView.frame.size.height/2;
-    CGFloat gap = textFieldBottomY - visibalHeight;
-    
-    if(textFieldBottomY > visibalHeight){
-        CGPoint scrollPoint = CGPointMake(0.0, gap);
-        [self.myScrollView setContentOffset:scrollPoint animated:YES];
-    }
-  
+    self.isEdited = TRUE;
+    self.activeFieldFrame = textView.frame;
 }
 
 #pragma mark textViewDidEndEditing
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-    //keyboard will hide
-    self.myScrollView.contentSize = CGSizeMake(self.view.frame.size.width,  self.myScrollViewHeight);
+    self.activeFieldFrame = CGRectMake(0, 0, 0, 0);
+    if(textView.tag >= 100){
+        [self.storesForDisplay setObject:self.addrsInfo[textView.tag-100] forKey:self.addrsInfo[textView.tag-100]];
+    }
+}
+
+#pragma mark - store info editing
+#pragma mark buttonAddStoreCB
+-(void)buttonAddStoreCB
+{
+    if(self.numberOfDisplayStores >= maxStoresAllowedForEachProduct){
+        return;
+    }
+    
+    self.numberOfDisplayStores++;
+    int storeCount = self.numberOfDisplayStores;
+    int index = storeNameIndex + (storeCount-1) * 3;
+    [self addStoreName:@"" address:@"" inLayoutIndex:index  inObjectIndex:storeCount-1];
+        
+}
+
+#pragma mark buttonDeleteStoreCB
+-(void)buttonDeleteStoreCB
+{    
+    if(self.numberOfDisplayStores==0){
+        return;
+    }
+
+    for(int i=self.storesInfo.count-1; i>=0; i--){
+        JZCheckBox *checkBox = self.checkBoxInfo[i];
+        UITextField *textFieldStoreName = self.storesInfo[i];
+        UITextView *textViewAddr = self.addrsInfo[i];
+
+        if(checkBox.isChecked == TRUE){
+            self.numberOfDisplayStores--;
+            [self.storesForDisplay removeObjectForKey:textFieldStoreName.text];
+            [self.storesInfo removeObjectAtIndex:i];
+            [self.addrsInfo removeObjectAtIndex:i];
+            [self.checkBoxInfo removeObjectAtIndex:i];
+        }
+        //remove all the widgets 
+        [checkBox removeFromSuperview];
+        [textFieldStoreName removeFromSuperview];
+        [textViewAddr removeFromSuperview];
+    }
+    
+    //move the rest widgets up by redisplay them
+    [self storeInfoLayoutAtIndex:storeNameIndex forStores:self.storesForDisplay];
     self.isEdited = TRUE;
 }
+
+
+#pragma mark - JZCheckBox delegate
+-(void) onCheckBoxChange:(JZCheckBox *)checkBox isChecked:(BOOL)isChecked
+{
+    //add code to handle the event for check box state change
+}
+
+
 
 @end

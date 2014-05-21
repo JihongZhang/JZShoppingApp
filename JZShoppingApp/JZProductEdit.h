@@ -11,15 +11,18 @@
 #import "JZProtocol.h"
 
 
+@protocol CheckBoxDelegate;
+
+
 /** This page is for edit and add product
  */
-@interface JZProductEdit : UIViewController <UITextFieldDelegate, UITextViewDelegate, EditItemDelegate>
+@interface JZProductEdit : UIViewController <UITextFieldDelegate, UITextViewDelegate, EditItemDelegate, CheckBoxDelegate>
 
-/** This page is shard by edit or add producr
- *  when isEdit is true, it is for edit, otherwise
+/** This page is sharded by edit and add product
+ *  when pageTypeIsEditable is true, it is for edit, otherwise
  *  for add product
  */
-@property (nonatomic) bool isEdit;
+@property (nonatomic) bool pageTypeIsAdding;
 
 @property (nonatomic) UIButton *buttonSave;
 @property (nonatomic) UIButton *buttonCacel;
