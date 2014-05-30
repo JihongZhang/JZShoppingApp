@@ -123,11 +123,11 @@ static NSString *CellIdentifier = @"UITableViewCell";
 {
     [super viewDidLoad];
     
-    //setup navigation bart acording the request button(buttonIndex)
+    //setup navigation bar according to the request button(buttonIndex)
     //if the index == 0, means verder button then
     //need to add edit buttons in the navigationBart
     //otherwise no edit buttons
-    if(self.buttonIndex == 0){
+    if(self.buttonIndex == buttonIndexTypeVernder){
         //add button
         UIButton *barbuttonAdd = [UIButton buttonWithType:UIButtonTypeContactAdd];
         [barbuttonAdd addTarget:self action:@selector(addItem) forControlEvents:UIControlEventTouchUpInside];        ;
@@ -245,7 +245,7 @@ static NSString *CellIdentifier = @"UITableViewCell";
 #pragma mark buttonDetailTappedOnCell
 -(void)buttonDetailTappedOnCell:(id)sender
 {
-    if(self.buttonIndex == 1){ //shopper
+    if(self.buttonIndex == buttonIndexTypeShopper){ //shopper
         [self buttonImageTappedOnCell:sender];
         return;
     }

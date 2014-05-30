@@ -14,6 +14,8 @@
 #define maxImagesAllowedForEachProduct 5
 #define maxStoresAllowedForEachProduct 5
 
+#define buttonIndexTypeVernder 0
+#define buttonIndexTypeShopper 1
 
 #define myTableViewCellHight 90
 #define myMargin 10

@@ -9,6 +9,7 @@
 #import "JZWelcomeViewController.h"
 #import "JZProductsModel.h"
 #import "JZViewController.h"
+#import "JZConstants.h"
 
 
 @interface JZWelcomeViewController ()
@@ -22,7 +23,7 @@
 -(IBAction)buttonVenderCB:(id)sender
 {
     JZViewController *tableViewProducts = [[JZViewController alloc] init];
-    tableViewProducts.buttonIndex = 0;
+    tableViewProducts.buttonIndex = buttonIndexTypeVernder;
     
     UIButton *barbuttonAdd = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [barbuttonAdd addTarget:tableViewProducts action:@selector(addItem) forControlEvents:UIControlEventTouchUpInside];
@@ -38,7 +39,7 @@
 -(IBAction)buttonShopperCB:(id)sender
 {
     JZViewController *productsListTable = [[JZViewController alloc] init];
-    productsListTable.buttonIndex = 1;
+    productsListTable.buttonIndex = buttonIndexTypeShopper;
     
     [self.navigationController pushViewController:productsListTable animated:YES];
     
