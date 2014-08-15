@@ -332,7 +332,8 @@ typedef NS_ENUM(NSInteger, editPageWidgetIndex){
             [self.delegate onAddSuccess:item];
         }
     }
-        
+    
+    NSLog(@"before leave edit page, after onAddSuccess");
     //leave this page
     [self.navigationController popViewControllerAnimated:YES];
     
@@ -385,7 +386,6 @@ typedef NS_ENUM(NSInteger, editPageWidgetIndex){
         CGFloat fieldWidth = ( CGRectGetWidth(self.view.frame) - myMargin * 3)/5 *4;
         CGFloat fieldHeight = myLabelHight;
         frame = CGRectMake(fieldX, fieldY, fieldWidth, fieldHeight);
-        //self.textFieldName = [[UITextField alloc] init];
         
         [self addTextField:self.textFieldName inMyView:self.myScrollView withText:productCell.name withFrame:&frame];
         

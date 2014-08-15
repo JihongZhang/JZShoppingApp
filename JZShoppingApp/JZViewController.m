@@ -31,6 +31,7 @@ static NSString *CellIdentifier = @"UITableViewCell";
 #pragma mark onAddSuccess Delegate
 -(void)onAddSuccess:(JZProductCell *)item
 {
+    NSLog(@"onAddSuccess called");
     //add data
     [self.data addObject:item];
     //update data in the tableView

@@ -10,6 +10,7 @@
 		CF0425381921EC6600791CFC /* JZCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0425371921EC6600791CFC /* JZCheckBox.m */; };
 		CF04253B1921EF4300791CFC /* checkbox_no.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04253A1921EF4300791CFC /* checkbox_no.png */; };
 		CF04253D1921EFC600791CFC /* checkbox_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04253C1921EFC600791CFC /* checkbox_yes.png */; };
+		CF3C575E1942E186001DC3E3 /* JZProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE9D3861904A6F900500A24 /* JZProductCell.m */; };
 		CFD8B064190775AB0019B9DE /* coat2.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B063190775AB0019B9DE /* coat2.png */; };
 		CFD8B0671907761F0019B9DE /* coat1.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B0651907761F0019B9DE /* coat1.png */; };
 		CFD8B0681907761F0019B9DE /* coat4.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B0661907761F0019B9DE /* coat4.png */; };
@@ -53,7 +54,6 @@
 		CFE9D3701903347E00500A24 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE9D36F1903347E00500A24 /* libsqlite3.dylib */; };
 		CFE9D38319048F2100500A24 /* JZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE9D38119048F2100500A24 /* JZViewController.m */; };
 		CFE9D38419048F2100500A24 /* JZViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFE9D38219048F2100500A24 /* JZViewController.xib */; };
-		CFE9D3871904A6F900500A24 /* JZProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE9D3861904A6F900500A24 /* JZProductCell.m */; };
 		CFEE3346192C7234007773B6 /* myNaviBar.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEE3345192C7234007773B6 /* myNaviBar.png */; };
 /* End PBXBuildFile section */
 
@@ -388,11 +388,11 @@
 				CFE9D3361902E9E700500A24 /* JZWelcomeViewController.m in Sources */,
 				CFE9D36E1903343D00500A24 /* JZProductsModel.m in Sources */,
 				CFE9D38319048F2100500A24 /* JZViewController.m in Sources */,
-				CFE9D3871904A6F900500A24 /* JZProductCell.m in Sources */,
 				CFD8B09E190F66CE0019B9DE /* JZLargeImageView.m in Sources */,
 				CFD8B0A11910CF600019B9DE /* JZProductAdditionalInfo.m in Sources */,
 				CFD8B0A719121C6B0019B9DE /* JZProductEdit.m in Sources */,
 				CF0425381921EC6600791CFC /* JZCheckBox.m in Sources */,
+				CF3C575E1942E186001DC3E3 /* JZProductCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -639,6 +639,11 @@ sqlite3 *productsDb = nil;
     }
 }
 
+-(void)dealloc
+{
+    sqlite3_close(productsDb);
+}
+
 
 @end
 

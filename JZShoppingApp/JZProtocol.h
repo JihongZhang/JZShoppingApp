@@ -11,14 +11,10 @@
 #import "JZCheckBox.h"
 
 
-@protocol JZProtocol <NSObject>
-
-@end
-
 
 /** table cell tap event protocol
  */
-@protocol TableCellDelegate
+@protocol TableCellDelegate <NSObject>
 @optional
 -(void) buttonImageTappedOnCell:(id)sender;
 -(void) buttonDetailTappedOnCell:(id)sender;

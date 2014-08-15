@@ -34,7 +34,7 @@
 /** checkbox asociated key
  */
 @property (nonatomic,copy) NSString *key;
-/** checkbox asociated key
+/** checkbox asociated key(index)
  */
 @property (nonatomic)int index;
 
