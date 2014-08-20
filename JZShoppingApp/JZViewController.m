@@ -131,7 +131,7 @@ static NSString *CellIdentifier = @"UITableViewCell";
         JZButtonAction *buttonAction = (JZButtonAction *)object;
         NSString *action = [change objectForKey:@"new"];
         if(action == @"edit"){
-            NSLog(@"observeValueForKeyPath*****action is:EDIT---%@", buttonAction.action);
+            NSLog(@"observeValueForKeyPath***action is:EDIT---%@", buttonAction.action);
             [self onSaveEditSuccess:nil];  
         }
     }
