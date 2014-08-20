@@ -1,13 +1,11 @@
 {
-    "date": "April 20, 2014",
-    "products": [
                  {
-                 "id": 100,
+                 "productId": 100,
                  "name": "coats",
                  "description": "London Fog Hooded Belted Raincoat",
-                 "regular_price": 20.1,
-                 "sale_price": 12.34,
-                 "product photos": [
+                 "regPrice": 20.1,
+                 "salePrice": 12.34,
+                 "images": [
                                     "WOMEN_01.png",
                                     "coat1",
                                     "coat2",
@@ -26,12 +24,12 @@
                  }
                  },
                  {
-                 "id": 101,
+                 "productId": 101,
                  "name": "Jeans",
                  "description": "Charter Club Long-Sleeve Classic Cardigan Collection ",
-                 "regular_price": 22.1,
-                 "sale_price": 20.34,
-                 "product photos": [
+                 "regPrice": 22.1,
+                 "salePrice": 20.34,
+                 "images": [
                                     "jean0.png",
                                     "jean2.png",
                                     "jean3.png",
@@ -48,12 +46,12 @@
                  }
                  },
                  {
-                 "id": 102,
+                 "productId": 102,
                  "name": "Sweater",
                  "description": "Style&co. Pleated-Back High-Low Sweater ",
-                 "regular_price": 15.1,
-                 "sale_price": 10.30,
-                 "product photos": [
+                 "regPrice": 15.1,
+                 "salePrice": 10.30,
+                 "images": [
                                     "Sweater.jpg",
                                     "WOMEN_02.png",
                                     "WOMEN_03.png"
@@ -69,12 +67,12 @@
                  }
                  },
                  {
-                 "id": 103,
+                 "productId": 103,
                  "name": "Jecket",
                  "description": "The North Face Jacket, Denali Fleece  ",
-                 "regular_price": 30.1,
-                 "sale_price": 22.34,
-                 "product photos": [
+                 "regPrice": 30.1,
+                 "salePrice": 22.34,
+                 "images": [
                                     "jacket.tif",
                                     "WOMEN_02.png",
                                     "WOMEN_03.png"
@@ -91,12 +89,12 @@
                  },
 
                  {
-                 "id": 104,
+                 "productId": 104,
                  "name": "dress",
                  "description": "INC International Concepts Zebra-Print Shirtdress  ",
-                 "regular_price": 100.1,
-                 "sale_price": 80.34,
-                 "product photos": [
+                 "regPrice": 100.1,
+                 "salePrice": 80.34,
+                 "images": [
                                     "dress1.png",
                                     "dress1.png",
                                     "WOMEN_03.png"
@@ -112,12 +110,12 @@
                  }
                  },
                  {
-                 "id": 105,
+                 "productId": 105,
                  "name": "skirts",
                  "description": "Karen Scott Cargo Skort  ",
-                 "regular_price": 30.1,
-                 "sale_price": 23.34,
-                 "product photos": [
+                 "regPrice": 30.1,
+                 "salePrice": 23.34,
+                 "images": [
                                     "WOMEN_03.png",
                                     "WOMEN_02.png",
                                     "WOMEN_01.png"
@@ -133,12 +131,12 @@
                  }
                  },
                  {
-                 "id": 106,
+                 "productId": 106,
                  "name": "Pajamas & Robes",
                  "description": "Charter Club Mother's Day Gown ",
-                 "regular_price": 19.1,
-                 "sale_price": 12.34,
-                 "product photos": [
+                 "regPrice": 19.1,
+                 "salePrice": 12.34,
+                 "images": [
                                     "WOMEN_05.png",
                                     "WOMEN_02.png",
                                     "WOMEN_03.png"
@@ -154,12 +152,12 @@
                  }
                  },
                  {
-                 "id": 107,
+                 "productId": 107,
                  "name": "Shorts",
                  "description": "Style&co. Tummy-Control Shorts ",
-                 "regular_price": 15.1,
-                 "sale_price": 12.34,
-                 "product photos": [
+                 "regPrice": 15.1,
+                 "salePrice": 12.34,
+                 "images": [
                                     "WOMEN_04.png",
                                     "short.jpeg",
                                     "WOMEN_02.png",
@@ -176,12 +174,12 @@
                  }
                  },
                  {
-                 "id": 108,
+                 "productId": 108,
                  "name": "Cardigan",
                  "description": "Charter Club Long-Sleeve Classic Cardigan Collection",
-                 "regular_price": 20.1,
-                 "sale_price": 17.34,
-                 "product photos": [
+                 "regPrice": 20.1,
+                 "salePrice": 17.34,
+                 "images": [
                                     "cardigan.jpg",
                                     "WOMEN_02.png",
                                     "WOMEN_03.png"
@@ -198,12 +196,12 @@
                  }
                  },
                  {
-                 "id": 109,
+                 "productId": 109,
                  "name": "Turtleneck",
                  "description": "Charter Club Sweater, Long-Sleeve Ribbed Turtleneck ",
-                 "regular_price": 33.1,
-                 "sale_price": 30.34,
-                 "product photos": [
+                 "regPrice": 33.1,
+                 "salePrice": 30.34,
+                 "images": [
                                     "turtleneck.jpeg",
                                     "WOMEN_02.png",
                                     "WOMEN_03.png"

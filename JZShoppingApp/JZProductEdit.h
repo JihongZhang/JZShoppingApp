@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JZProductCell.h"
 #import "JZProtocol.h"
+#import "JZButtonAction.h"
 
 
 @protocol CheckBoxDelegate;
@@ -44,6 +45,9 @@
 /** callback for cancel the changes or adding the product
  */
 -(void)resetChanges:(id)sender;
+
+
+@property(nonatomic) JZButtonAction *buttonAction;
 
 @end
 

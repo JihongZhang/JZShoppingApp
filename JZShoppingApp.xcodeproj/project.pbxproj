@@ -10,6 +10,7 @@
 		CF0425381921EC6600791CFC /* JZCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0425371921EC6600791CFC /* JZCheckBox.m */; };
 		CF04253B1921EF4300791CFC /* checkbox_no.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04253A1921EF4300791CFC /* checkbox_no.png */; };
 		CF04253D1921EFC600791CFC /* checkbox_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04253C1921EFC600791CFC /* checkbox_yes.png */; };
+		CF3C3C01199F28250072A5EC /* JZButtonAction.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3C3C00199F28250072A5EC /* JZButtonAction.m */; };
 		CF3C575E1942E186001DC3E3 /* JZProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE9D3861904A6F900500A24 /* JZProductCell.m */; };
 		CFD8B064190775AB0019B9DE /* coat2.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B063190775AB0019B9DE /* coat2.png */; };
 		CFD8B0671907761F0019B9DE /* coat1.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD8B0651907761F0019B9DE /* coat1.png */; };
@@ -62,6 +63,8 @@
 		CF0425371921EC6600791CFC /* JZCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZCheckBox.m; sourceTree = "<group>"; };
 		CF04253A1921EF4300791CFC /* checkbox_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_no.png; sourceTree = "<group>"; };
 		CF04253C1921EFC600791CFC /* checkbox_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_yes.png; sourceTree = "<group>"; };
+		CF3C3BFF199F28250072A5EC /* JZButtonAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZButtonAction.h; sourceTree = "<group>"; };
+		CF3C3C00199F28250072A5EC /* JZButtonAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZButtonAction.m; sourceTree = "<group>"; };
 		CFD8B063190775AB0019B9DE /* coat2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coat2.png; sourceTree = "<group>"; };
 		CFD8B0651907761F0019B9DE /* coat1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coat1.png; sourceTree = "<group>"; };
 		CFD8B0661907761F0019B9DE /* coat4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coat4.png; sourceTree = "<group>"; };
@@ -283,6 +286,8 @@
 				CFDCF1FE191B31EB007A0BE1 /* JZProtocol.h */,
 				CF0425361921EC6600791CFC /* JZCheckBox.h */,
 				CF0425371921EC6600791CFC /* JZCheckBox.m */,
+				CF3C3BFF199F28250072A5EC /* JZButtonAction.h */,
+				CF3C3C00199F28250072A5EC /* JZButtonAction.m */,
 			);
 			name = ViewAndController;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 				CFD8B0A719121C6B0019B9DE /* JZProductEdit.m in Sources */,
 				CF0425381921EC6600791CFC /* JZCheckBox.m in Sources */,
 				CF3C575E1942E186001DC3E3 /* JZProductCell.m in Sources */,
+				CF3C3C01199F28250072A5EC /* JZButtonAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

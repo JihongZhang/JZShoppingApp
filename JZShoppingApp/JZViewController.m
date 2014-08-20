@@ -115,10 +115,28 @@ static NSString *CellIdentifier = @"UITableViewCell";
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        
+#ifdef KVCKVO
+        self.buttonAction = [[JZButtonAction alloc] init];
+        [self.buttonAction addObserver:self forKeyPath:@"action" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+#endif
     }
     return self;
 }
+
+#ifdef KVCKVO
+// this is just an exercise for KVO
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if([object isKindOfClass:[JZButtonAction class]]){
+        JZButtonAction *buttonAction = (JZButtonAction *)object;
+        NSString *action = [change objectForKey:@"new"];
+        if(action == @"edit"){
+            NSLog(@"observeValueForKeyPath*****action is:EDIT---%@", buttonAction.action);
+            [self onSaveEditSuccess:nil];  
+        }
+    }
+}
+#endif
 
 - (void)viewDidLoad
 {
@@ -142,11 +160,17 @@ static NSString *CellIdentifier = @"UITableViewCell";
 
 }
 
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+#ifdef KVCKVO
+    [self.buttonAction removeObserver:self forKeyPath:@"action"];
+#endif
 }
 
 
@@ -258,6 +282,9 @@ static NSString *CellIdentifier = @"UITableViewCell";
     productEdit.navigationItem.title = @"Edit";
     //navigation bar back button callback
     productEdit.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:productEdit action:@selector(checkIfPageEdited)];
+    
+    //#ifdef KVCKVO
+    productEdit.buttonAction = self.buttonAction;
 
     //ToolBar for save and cacel button
     UIScreen *mainScreen = [UIScreen mainScreen];

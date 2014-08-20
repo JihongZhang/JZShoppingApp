@@ -9,6 +9,7 @@
 #ifndef JZShoppingApp_JZConstants_h
 #define JZShoppingApp_JZConstants_h
 
+#define KVCKVO  1
 
 #define maxColorsAllowedForEachProduct 5
 #define maxImagesAllowedForEachProduct 5

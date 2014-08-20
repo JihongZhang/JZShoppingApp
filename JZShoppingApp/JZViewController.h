@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JZProductCell.h"
 #import "JZProtocol.h"
+#import "JZButtonAction.h"
 
 
 @interface JZViewController : UITableViewController <EditItemDelegate, TableCellDelegate>
@@ -19,5 +20,7 @@
  */
 @property(nonatomic, assign) int buttonIndex;
 
+
+@property(nonatomic) JZButtonAction *buttonAction;
 
 @end

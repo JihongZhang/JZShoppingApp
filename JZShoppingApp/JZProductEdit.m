@@ -320,9 +320,13 @@ typedef NS_ENUM(NSInteger, editPageWidgetIndex){
             [JZProductsModel deleteOneProductFromDb:productId];
             [JZProductsModel insertOneProductToDb:item];
         }
+#ifdef KVCKVO
+        [self.buttonAction setValue:@"edit" forKey:@"action"];
+#else
         if ([self.delegate respondsToSelector:@selector(onSaveEditSuccess:)]) {
             [self.delegate onSaveEditSuccess:item];
-        }        
+        }
+#endif
     }else{ //page is for adding product: add product
         item.productId = 0;
         [JZProductsModel insertOneProductToDb:item];
@@ -342,6 +346,9 @@ typedef NS_ENUM(NSInteger, editPageWidgetIndex){
 #pragma mark resetChanges
 -(void)resetChanges:(id)sender
 {
+#ifdef KVCKVO
+    [self.buttonAction setValue:@"reset" forKey:@"action"];
+#endif
    [self.navigationController popViewControllerAnimated:YES];
 }
 
