@@ -132,7 +132,7 @@ static NSString *CellIdentifier = @"UITableViewCell";
         NSString *action = [change objectForKey:@"new"];
         if(action == @"edit"){
             NSLog(@"observeValueForKeyPath***action is:EDIT---%@", buttonAction.action);
-            [self onSaveEditSuccess:nil];  
+            [self onSaveEditSuccess:nil];
         }
     }
 }
