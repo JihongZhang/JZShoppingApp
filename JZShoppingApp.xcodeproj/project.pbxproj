@@ -36,6 +36,8 @@
 		CFD8B0A11910CF600019B9DE /* JZProductAdditionalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD8B0A01910CF600019B9DE /* JZProductAdditionalInfo.m */; };
 		CFD8B0A719121C6B0019B9DE /* JZProductEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD8B0A619121C670019B9DE /* JZProductEdit.m */; };
 		CFDCF1FC191A04BA007A0BE1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFDCF1FB191A04BA007A0BE1 /* Default-568h@2x.png */; };
+		CFE9BFF419D73D6F007FA01D /* JZStoreInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE9BFF319D73D6F007FA01D /* JZStoreInfo.m */; };
+		CFE9BFF719D93061007FA01D /* JZAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE9BFF619D93061007FA01D /* JZAddress.m */; };
 		CFE9D30A1902E55D00500A24 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE9D3091902E55D00500A24 /* UIKit.framework */; };
 		CFE9D30C1902E55D00500A24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE9D30B1902E55D00500A24 /* Foundation.framework */; };
 		CFE9D30E1902E55D00500A24 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE9D30D1902E55D00500A24 /* CoreGraphics.framework */; };
@@ -92,6 +94,10 @@
 		CFDCF1FA1918BA39007A0BE1 /* JZConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZConstants.h; sourceTree = "<group>"; };
 		CFDCF1FB191A04BA007A0BE1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		CFDCF1FE191B31EB007A0BE1 /* JZProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZProtocol.h; sourceTree = "<group>"; };
+		CFE9BFF219D73D6F007FA01D /* JZStoreInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZStoreInfo.h; sourceTree = "<group>"; };
+		CFE9BFF319D73D6F007FA01D /* JZStoreInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZStoreInfo.m; sourceTree = "<group>"; };
+		CFE9BFF519D93061007FA01D /* JZAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZAddress.h; sourceTree = "<group>"; };
+		CFE9BFF619D93061007FA01D /* JZAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZAddress.m; sourceTree = "<group>"; };
 		CFE9D3051902E55D00500A24 /* JZShoppingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JZShoppingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE9D3091902E55D00500A24 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CFE9D30B1902E55D00500A24 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -283,6 +289,10 @@
 				CFDCF1FE191B31EB007A0BE1 /* JZProtocol.h */,
 				CF0425361921EC6600791CFC /* JZCheckBox.h */,
 				CF0425371921EC6600791CFC /* JZCheckBox.m */,
+				CFE9BFF219D73D6F007FA01D /* JZStoreInfo.h */,
+				CFE9BFF319D73D6F007FA01D /* JZStoreInfo.m */,
+				CFE9BFF519D93061007FA01D /* JZAddress.h */,
+				CFE9BFF619D93061007FA01D /* JZAddress.m */,
 			);
 			name = ViewAndController;
 			sourceTree = "<group>";
@@ -393,6 +403,8 @@
 				CFD8B0A719121C6B0019B9DE /* JZProductEdit.m in Sources */,
 				CF0425381921EC6600791CFC /* JZCheckBox.m in Sources */,
 				CF3C575E1942E186001DC3E3 /* JZProductCell.m in Sources */,
+				CFE9BFF419D73D6F007FA01D /* JZStoreInfo.m in Sources */,
+				CFE9BFF719D93061007FA01D /* JZAddress.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

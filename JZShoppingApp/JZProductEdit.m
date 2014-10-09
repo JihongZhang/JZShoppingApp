@@ -13,6 +13,7 @@
 #import "JZConstants.h"
 #import "JZProtocol.h"
 #import "JZCheckBox.h"
+#import "JZStoreInfo.h"
 
 
 
@@ -30,14 +31,17 @@
 @property (nonatomic) UITextField *textFieldColor;
 @property (nonatomic) UITextField *textFieldDescript;
 
-@property (nonatomic) NSMutableArray *storesInfo;
-@property (nonatomic) NSMutableArray *addrsInfo;
+//for store info controllers container
+@property (nonatomic) NSMutableArray *storesInfo;  //for store info controllers
+@property (nonatomic) NSMutableArray *addrsInfo;   //for address info controllers
 @property (nonatomic) NSMutableArray *checkBoxInfo;
 
 // for holding the display information of stores info
 // if cancel edit: keep the product cell info untouched
 // if save the edit, copy storesForDisplay to (productCell)item.stores
-@property (nonatomic) NSMutableDictionary *storesForDisplay;
+//@property (nonatomic) NSMutableDictionary *storesForDisplay;
+//for store name and address container
+@property (nonatomic) NSMutableArray *storesForDisplay;
 @property (nonatomic) int numberOfDisplayStores;
 
 
@@ -49,6 +53,7 @@
 
 
 @property (nonatomic) CGRect   activeFieldFrame;
+@property (nonatomic) CGRect   activeFieldText;
 
 @end
 
@@ -137,14 +142,16 @@
     frame = CGRectMake(txtStoreX,txtStoreY,txtStoreWidth,txtStoreHeight);
     [self addTextView:textViewAddr inMyView:self.myScrollView withText:addr withFram:&frame];
 
-    textFieldStoreName.tag = objIndex+100;
-    textViewAddr.tag = objIndex+100;
+    textFieldStoreName.tag = objIndex+100;  //tag from 100 to 199 is for storeName
+    textViewAddr.tag = objIndex+200;  //tag from 200 to 299 is for store address
     self.storesInfo[objIndex] = textFieldStoreName;
     self.addrsInfo[objIndex] = textViewAddr;
     self.checkBoxInfo[objIndex] = checkBox;
     
-    [self.storesForDisplay setObject:addr forKey:name];
-}
+    JZAddress *add = [[JZAddress alloc]initWithAddress:addr];
+    JZStoreInfo *storeInfo = [[JZStoreInfo alloc] initWithStoreName:name address:add];
+    self.storesForDisplay[objIndex] = storeInfo;
+} 
 
 #pragma mark addButton
 -(void)addButton:(UIButton*)button inMyView:(UIScrollView*)myView withTitle:(NSString*)title withFfram:(CGRect*)frame select:(NSString*)mySelector
@@ -163,20 +170,21 @@
 
 
 #pragma mark add store name and store address if the store name is not null
-//-(void)storeInfoLayoutAtIndex:(int)index forProduct:(JZProductCell*)productCell
 -(void)storeInfoLayoutAtIndex:(int)index forStores:(NSDictionary*)stores
 {
     NSArray *storeNames = [stores allKeys];
-    storeNames = [storeNames sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    if(storeNames.count > 0){
+        if([storeNames[0] length] > 0){  // to avoid empty name cause crash
+            storeNames = [storeNames sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+        }
+    }
     for(int i=0; i< storeNames.count; i++){
-        if( i < storeNames.count){
-            if( [[storeNames objectAtIndex:i] length] < 1){
-                continue;
-            }
-            NSString *addr = [stores objectForKey:storeNames[i]];
-            self.numberOfDisplayStores++;
-            [self addStoreName:storeNames[i] address:addr  inLayoutIndex:index  inObjectIndex:i];
-        }  
+        if( [[storeNames objectAtIndex:i] length] == 0){
+            continue;
+        }
+        NSString *addr = [stores objectForKey:storeNames[i]];
+        self.numberOfDisplayStores++;
+        [self addStoreName:storeNames[i] address:addr  inLayoutIndex:index  inObjectIndex:i]; 
         index += 3; //store name + textView height = 2 * myLabelHight
     }
 }
@@ -364,7 +372,7 @@ typedef NS_ENUM(NSInteger, editPageWidgetIndex){
         self.textFieldColor = [[UITextField alloc] init];
         self.textFieldDescript = [[UITextField alloc] init];
         self.item = productCell;
-        self.storesForDisplay = [[NSMutableDictionary alloc] init];
+        self.storesForDisplay = [[NSMutableArray alloc] initWithCapacity:maxStoresAllowedForEachProduct];
         self.numberOfDisplayStores = 0;
         
         self.fontSize = [UIFont systemFontOfSize:myFontSize];
@@ -625,8 +633,17 @@ typedef NS_ENUM(NSInteger, editPageWidgetIndex){
 #pragma mark textFieldDidEndEditing
 -(void)textFieldDidEndEditing:(UITextField *)textField {
     self.activeFieldFrame = CGRectMake(0, 0, 0, 0);
-    if(textField.tag >= 100){
-        [self.storesForDisplay setObject:self.addrsInfo[textField.tag-100] forKey:self.addrsInfo[textField.tag-100]];
+    if(textField.tag >= 100){ //if the field is for store name and address
+        JZStoreInfo *storeInfo =  self.storesForDisplay[textField.tag-100];
+        if(textField.tag < 200){ //if the field is for store name
+            storeInfo.storeName = textField.text;
+            [self.storesForDisplay replaceObjectAtIndex:textField.tag-100 withObject:storeInfo];
+        }else{ // >= 200:atore address
+            JZAddress *address = [[JZAddress alloc]initWithAddress:textField.text];
+            storeInfo.address = address;
+            [self.storesForDisplay replaceObjectAtIndex:textField.tag-200 withObject:storeInfo];
+        }
+        
     }
 }
 
@@ -653,12 +670,13 @@ typedef NS_ENUM(NSInteger, editPageWidgetIndex){
     self.activeFieldFrame = textView.frame;
 }
 
-#pragma mark textViewDidEndEditing
+#pragma mark textViewDidEndEditing, currently use for store info only (Address)
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     self.activeFieldFrame = CGRectMake(0, 0, 0, 0);
-    if(textView.tag >= 100){
-        [self.storesForDisplay setObject:self.addrsInfo[textView.tag-100] forKey:self.addrsInfo[textView.tag-100]];
+    if(textView.tag >= 200){//if the field is for store address
+        NSString *addressKey = [NSString stringWithFormat:@"address%d",textView.tag-200];
+        [self.storesForDisplay[textView.tag-200] setValue:textView.text forKey:addressKey];
     }
 }
 
@@ -673,40 +691,73 @@ typedef NS_ENUM(NSInteger, editPageWidgetIndex){
     self.numberOfDisplayStores++;
     int storeCount = self.numberOfDisplayStores;
     int index = storeNameIndex + (storeCount-1) * 3;
-    [self addStoreName:@"" address:@"" inLayoutIndex:index  inObjectIndex:storeCount-1];
+    NSString *storeName = [NSString stringWithFormat:@"store%d",storeCount];
+    NSString *storeAddr = [NSString stringWithFormat:@"address%d", storeCount];
+    [self addStoreName:storeName address:storeAddr inLayoutIndex:index  inObjectIndex:storeCount-1];
         
 }
 
 #pragma mark buttonDeleteStoreCB
 -(void)buttonDeleteStoreCB
-{    
+{
     if(self.numberOfDisplayStores==0){
         return;
     }
 
-    for(int i=self.storesInfo.count-1; i>=0; i--){
+    int count = self.storesForDisplay.count;
+    int first = 0;
+    for(int i=count-1; i>=0; i--){
         JZCheckBox *checkBox = self.checkBoxInfo[i];
         UITextField *textFieldStoreName = self.storesInfo[i];
         UITextView *textViewAddr = self.addrsInfo[i];
 
         if(checkBox.isChecked == TRUE){
-            self.numberOfDisplayStores--;
-            [self.storesForDisplay removeObjectForKey:textFieldStoreName.text];
+            first = i;
+            //remove store address info and all the related controllers
+            [self.storesForDisplay removeObjectAtIndex:i];
             [self.storesInfo removeObjectAtIndex:i];
             [self.addrsInfo removeObjectAtIndex:i];
             [self.checkBoxInfo removeObjectAtIndex:i];
+            //remove all the controls 
+            [checkBox removeFromSuperview];
+            [textFieldStoreName removeFromSuperview];
+            [textViewAddr removeFromSuperview];
+            
+            self.numberOfDisplayStores--;
+            if(self.numberOfDisplayStores == 0){
+                return;
+            }
         }
-        //remove all the widgets 
-        [checkBox removeFromSuperview];
-        [textFieldStoreName removeFromSuperview];
-        [textViewAddr removeFromSuperview];
     }
     
-    //move the rest widgets up by redisplay them
-    [self storeInfoLayoutAtIndex:storeNameIndex forStores:self.storesForDisplay];
+    //move the rest controls up by redisplay them
+    //first remove all the old one, and than redisplay them
+    //start from the first deleted store info
+    int layoutIndex = storeNameIndex;  //get the first store layout index
+    layoutIndex = layoutIndex + first * 3; //store name + textView height = 2 * myLabelHight
+    for(int j=first;  j <= self.numberOfDisplayStores-1; j++){
+        [self.checkBoxInfo[j] removeFromSuperview];
+        [self.storesInfo[j] removeFromSuperview];
+        [self.addrsInfo[j] removeFromSuperview];
+        
+        JZStoreInfo *storeInfo = self.storesForDisplay[j];        
+        //move the display up after the delete
+         NSString *storeName = storeInfo.storeName;
+        JZAddress *add = storeInfo.address;
+        NSString *storeAddress = add.address;  
+        [self.storesForDisplay removeObjectAtIndex:j];
+
+        [self addStoreName:storeName address:storeAddress inLayoutIndex:layoutIndex inObjectIndex:j];
+        layoutIndex += 3;
+    }
+     
     self.isEdited = TRUE;
 }
 
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    NSLog(@"file is %s function %@ is calling", __FILE__, NSStringFromSelector(_cmd));
+}
 
 #pragma mark - JZCheckBox delegate
 -(void) onCheckBoxChange:(JZCheckBox *)checkBox isChecked:(BOOL)isChecked
